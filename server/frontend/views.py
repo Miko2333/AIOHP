@@ -43,3 +43,17 @@ def login_view(request):
 
 def signup_view(request):
     return render(request, 'signup.html')
+
+def user(request):
+    return render(request, 'user.html')
+
+def course(request):
+    return render(request, 'course-model.html')
+
+from django.utils import timezone
+
+def your_view(request):
+    context = {
+        'timestamp': int(timezone.now().timestamp())
+    }
+    return render(request, 'your_template.html', context)
