@@ -123,3 +123,21 @@ class TeacherList(generics.ListCreateAPIView):
 class TeacherDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
+
+
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def check_login_status(request):
+    if request.user.is_authenticated:
+        return Response({
+            'logged_in': True,
+            'username': request.user.username
+        })
+    else:
+        return Response({
+            'logged_in': False
+        }, status=status.HTTP_403_FORBIDDEN)
