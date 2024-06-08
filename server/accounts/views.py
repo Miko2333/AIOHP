@@ -163,7 +163,6 @@ class FileDownload(APIView):
         file_obj = self.get_object(pk)
         return FileResponse(open(file_obj.file.path, 'rb'))
 
-
 class HomeworkList(generics.ListCreateAPIView):
     queryset = Homework.objects.all()
     serializer_class = HomeworkSerializer
