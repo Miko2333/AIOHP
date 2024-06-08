@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'dcss/style.css' %}?v={{ timestamp }}">
     <link rel="stylesheet" id="theme-change" type="text/css" href="#">
     <!-- Favicon Link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/webfonts/fa-solid-900.woff" />
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 <body>
@@ -53,22 +54,15 @@
           <div class="int-thumb-slider">
             <!-- Swiper -->
             <div class="swiper-container gallery-top">
-              <div class="swiper-wrapper">
+             
                 <div class="swiper-slide"><img src="{% static 'img/OS.jpg' %}" alt="product-img"></div>
-                <div class="swiper-slide"><img src="{% static 'images/thumb2.png' %}" alt="product-img"></div>
-                <div class="swiper-slide"><img src="{% static 'images/thumb3.png' %}" alt="product-img"></div>
-                <div class="swiper-slide"><img src="{% static 'images/thumb4.png' %}" alt="product-img"></div>
-              </div>
+
             </div>
           </div>
           <div class="int-minithumb-slider">
             <div class="swiper-container gallery-thumbs">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="{% static 'img/OS.jpg' %}" alt="product-img"></div>
-                <div class="swiper-slide"><img src="{% static 'images/product2.png' %}" alt="product-img"></div>
-                <div class="swiper-slide"><img src="{% static 'images/product3.png' %}" alt="product-img"></div>
-                <div class="swiper-slide"><img src="{% static 'images/product4.png' %}" alt="product-img"></div>
-              </div>
+             
+
             </div>
             <!-- Swiper -->
           </div>
@@ -78,7 +72,7 @@
             <div class="int-price-detail">
               <h1 id="course-name">{course name}</h1>
               <ul>
-                <li id="course-teacher">{teacher}</li>
+                <li id="teacher_name">{teacher}</li>
                 <li></li>
                 <li id="course-academy">{academy}</li>
                 <li id="student-number">{student number}</li>
@@ -93,61 +87,26 @@
             </div>
             <div class="int-thumb-description">
               <ul>
-                <li><span>{Class number}</span>Length(17 inch.),Height(32 inches)</li>
-                <li><span>{Capacity}</span>Wooden</li>
-                <li><span>{available}</span>Yellow,Style:Modern</li>
-                <li id="course-address"><span>{address}</span>6 month warranty on manufacturing defects</li>
+                <li id="number"><span>{Class number}</span>Length(17 inch.),Height(32 inches)</li>
+                <li id="capacity"><span>{Capacity}</span>Wooden</li>
+                <li id="available"><span>{available}</span>Yellow,Style:Modern</li>
+                <li id="address"><span>{address}</span>6 month warranty on manufacturing defects</li>
               </ul>
             </div>
             <div class="int-quantity-style2">
               <div class="int-textbox-subscribe4">
                 <p id="total-hours">{Total hours}</p>
-                <div class="int-search-wrapper">
-                  <input type="text" placeholder="Enter Your Pincode" id="searchInput">
-                  <a href="javascript:;" class="ad-btn" id="searchInputBtn">check</a>
-                </div>
                 <span>Generally delivered in 8 - 12 days</span>
               </div>
             </div>
             <div class="int-quantity-stock">
               <h5 id="course-time">{Time}:<span>Many In Stock</span></h5>
               <ul>
-                <li>Quantity</li>
-                <li>
-                  <div class="fd-pro-quantity">
-                    <div class="quantity-wrapper">
-                      <div class="input-group">
-                        <input type="text" class="quantity" value="2">
-                        <span class="quantity-minus quantity-minus2"><i class="fas fa-angle-up"></i></span>
-                        <span class="quantity-plus quantity-plus2"><i class="fas fa-angle-down"></i></span>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li><a href="cart.html" class="ad-btn">add to cart</a></li>
-                <li><a href="javascript:;" class="svg-icon">
-                  <svg viewBox="0 -28 512.001 512" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m256 455.515625c-7.289062 0-14.316406-2.640625-19.792969-7.4375-20.683593-18.085937-40.625-35.082031-58.21875-50.074219l-.089843-.078125c-51.582032-43.957031-96.125-81.917969-127.117188-119.3125-34.644531-41.804687-50.78125-81.441406-50.78125-124.742187 0-42.070313 14.425781-80.882813 40.617188-109.292969 26.503906-28.746094 62.871093-44.578125 102.414062-44.578125 29.554688 0 56.621094 9.34375 80.445312 27.769531 12.023438 9.300781 22.921876 20.683594 32.523438 33.960938 9.605469-13.277344 20.5-24.660157 32.527344-33.960938 23.824218-18.425781 50.890625-27.769531 80.445312-27.769531 39.539063 0 75.910156 15.832031 102.414063 44.578125 26.191406 28.410156 40.613281 67.222656 40.613281 109.292969 0 43.300781-16.132812 82.9375-50.777344 124.738281-30.992187 37.398437-75.53125 75.355469-127.105468 119.308594-17.625 15.015625-37.597657 32.039062-58.328126 50.167969-5.472656 4.789062-12.503906 7.429687-19.789062 7.429687zm-112.96875-425.523437c-31.066406 0-59.605469 12.398437-80.367188 34.914062-21.070312 22.855469-32.675781 54.449219-32.675781 88.964844 0 36.417968 13.535157 68.988281 43.882813 105.605468 29.332031 35.394532 72.960937 72.574219 123.476562 115.625l.09375.078126c17.660156 15.050781 37.679688 32.113281 58.515625 50.332031 20.960938-18.253907 41.011719-35.34375 58.707031-50.417969 50.511719-43.050781 94.136719-80.222656 123.46875-115.617188 30.34375-36.617187 43.878907-69.1875 43.878907-105.605468 0-34.515625-11.605469-66.109375-32.675781-88.964844-20.757813-22.515625-49.300782-34.914062-80.363282-34.914062-22.757812 0-43.652344 7.234374-62.101562 21.5-16.441406 12.71875-27.894532 28.796874-34.609375 40.046874-3.453125 5.785157-9.53125 9.238282-16.261719 9.238282s-12.808594-3.453125-16.261719-9.238282c-6.710937-11.25-18.164062-27.328124-34.609375-40.046874-18.449218-14.265626-39.34375-21.5-62.097656-21.5zm0 0"/>
-                  </svg>
-                  </a></li>
-                <li><a href="javascript:;" class="svg-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.095 300.095">
-                    <g>
-                      <g>
-                        <g>
-                          <path d="M23.491,144.032c0-28.762,23.399-52.155,52.161-52.155h185.706l-46.874,46.874l14.31,14.305
-                              l71.301-71.295L228.8,10.47L214.5,24.78l46.863,46.868H75.657c-39.912,0-72.389,32.477-72.389,72.389v7.419h20.228v-7.424H23.491
-                              z"/>
-                          </g>
-                          <g>
-                            <path d="M276.604,156.058c0,28.762-23.404,52.155-52.166,52.155H38.726l46.879-46.874L71.29,147.04
-                              L0,218.335l71.295,71.29l14.299-14.31l-46.874-46.868h185.711c39.917,0,72.394-32.471,72.394-72.388v-7.419h-20.228v7.419
-                              H276.604z"/>
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                    </a></li>
+               
+
+              <li><a href="#" id="joinClassBtn" class="ad-btn">Join the class</a></li>
+
+                
               </ul>
             </div>
           </div>
@@ -162,7 +121,7 @@
             <ul class="nav nav-tabs">
               <li><a data-toggle="tab" class="active" href="#description">Description</a></li>
               <li><a data-toggle="tab" href="#review">Review</a></li>
-              <li><a data-toggle="tab" href="#info">Additional Information</a></li>
+            
             </ul>
             <div class="tab-content">
               <div id="description" class="tab-pane fade show active">
@@ -199,16 +158,7 @@
                   </div>
                 </div>
               </div>
-              <div id="info" class="tab-pane fade">
-                <ul class="additional-info">
-                  <li><span class="info-head">Size -</span> 4 cm x 20 cm</li>
-                  <li><span class="info-head">System rating -</span> High</li>
-                  <li><span class="info-head">Color -</span> Brown</li>
-                  <li><span class="info-head">Material -</span> Sofa</li>
-                  <li><span class="info-head">Model number -</span> GT 15014G</li>
-                  <li><span class="info-head">Generic name -</span> Light</li>
-                </ul>
-              </div>
+             
             </div>
           </div>
         </div>
@@ -371,33 +321,133 @@
 <!-- Custom Script -->
 <script src="{% static 'djs/custom.js' %}"></script>
 <script>
-  $(document).ready(function() {
-    var courseId = window.location.pathname.split('/').pop();
-	alert(courseId);
-    $.ajax({
-      type: 'GET',
-      url: '/api/courses/${courseId}',
-      contentType: 'application/json',
-      success: function(course) {
-        $('#course-name').text(course.name);
-        $('#course-teacher').text(course.teachername);
-        $('#course-academy').text(course.academy);
-        $('#student-number').text(course.students);
-        $('#course-address').text(course.address);
-        $('#total-hours').text(course.total_class_hours + ' hours');
-        $('#course-time').text(course.day_of_week + ' ' + course.start_time + ' - ' + course.end_time);
+function getCourseNumberFromPath() {
+    const path = window.location.pathname;
+    const regex = /\/course\/(\d+)\//;
+    const match = path.match(regex);
+    if (match) {
+        return match[1];
+    } else {
+        return null;
+    }
+}
 
-        var studentsList = '';
-        course.students.forEach(function(student) {
-          studentsList += '<li>' + student.name + '</li>';
+$(document).ready(function() {
+    var courseId = getCourseNumberFromPath();
+    if (courseId) {
+
+        $.ajax({
+            type: 'GET',
+            url: `/api/courses/${courseId}`,
+            contentType: 'application/json',
+            success: function(course) {
+                $('#id').html(`<strong>ID:</strong> ${course.id}`);
+                $('#number').html(`<strong>Number:</strong> ${course.number}`);
+                $('#description').html(`<strong>Description:</strong> ${course.description}`);
+                $('#teacher_name').html(`<strong>Teacher:</strong> ${course.teacher_name}`);
+                $('#academy').html(`<strong>Academy:</strong> ${course.academy}`);
+                $('#address').html(`<strong>Address:</strong> ${course.address}`);
+                $('#capacity').html(`<strong>Capacity:</strong> ${course.capacity}`);
+                $('#available').html(`<strong>Available Seats:</strong> ${course.capacity - course.student.length}`);
+                $('#course-name').html(`<strong>Course Name:</strong> ${course.name}`);
+                $('#start_time').html(`<strong>Start Time:</strong> ${course.start_time}`);
+                $('#total-hours').html(`<strong>Total Hours:</strong> ${course.total_class_hours} hours`);
+                $('#course-time').html(`<strong>Course Time:</strong> ${course.day_of_week} ${course.start_time} - ${course.end_time}`);
+                $('#student-number').html(`<strong>Student Number:</strong> ${course.student.length}`);
+                
+                var studentsList = '';
+                course.student.forEach(function(studentId) {
+                    // 这里假设你有办法获取学生名字，使用学生ID只是为了展示
+                    studentsList += `<li>Student ID: ${studentId}</li>`;
+                });
+                $('#student-list').html(studentsList);
+            },
+            error: function(response) {
+                console.log('Failed to fetch course details:', response);
+            }
         });
-        $('#student-list').html(studentsList);
-      },
-      error: function(response) {
-        console.log('Failed to fetch course details:', response);
-      }
-    });
-  });
+    } else {
+        console.log('Course ID not found in the URL.');
+    }
+});
 </script>
+<script>
+document.getElementById('joinClassBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // 从 localStorage 获取学生ID
+    const studentId = localStorage.getItem('user_id');
+    if (!studentId) {
+        alert('No student ID found. Please log in first.');
+        return;
+    }
+
+    // 假设您有办法获取课程ID，例如从URL或其他地方
+    const courseId = getCourseNumberFromPath(); // 假设这个函数已经定义好获取课程ID
+
+    if (!courseId) {
+        alert('No course ID found.');
+        return;
+    }
+
+    const data = {
+        student: studentId
+    };
+
+    fetch(`/api/courses/${courseId}/add_student`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Failed to add student to the course.');
+        }
+    })
+    .then(data => {
+        if (data.status === 'student added') {
+            alert('Student successfully added to the course.');
+        } else {
+            alert('Failed to add student: ' + data.status);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred: ' + error.message);
+    });
+
+    function getCourseNumberFromPath() {
+        const path = window.location.pathname;
+        const regex = /\/course\/(\d+)\//;
+        const match = path.match(regex);
+        if (match) {
+            return match[1];
+        } else {
+            return null;
+        }
+    }
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+});
+</script>
+
 </body>
 </html>

@@ -44,16 +44,35 @@ def login_view(request):
 def signup_view(request):
     return render(request, 'signup.html')
 
-def user(request):
-    return render(request, 'user.html')
+def teacher_info(request):
+    return render(request, 'teacher_info.html')
+def student_info(request):
+    return render(request, 'student_info.html')
 
 def course(request):
     return render(request, 'course-model.html')
 
-from django.utils import timezone
+from django.shortcuts import render, redirect, get_object_or_404
+from accounts.models import Course
+from .forms import CourseForm
 
-def your_view(request):
-    context = {
-        'timestamp': int(timezone.now().timestamp())
-    }
-    return render(request, 'your_template.html', context)
+def course_create_view(request):
+    if request.method == "POST":
+        form = CourseForm(request.POST, request.FILES)
+        if form.is_valid():
+            course = form.save()
+            response_data = {
+                'message': 'Course created successfully',
+                'redirect_url': course.get_absolute_url()
+            }
+            return JsonResponse(response_data, status=200)
+        else:
+            errors = form.errors.as_json()
+            return JsonResponse({'error': 'Invalid data', 'details': errors}, status=400)
+    else:
+        form = CourseForm()
+    return render(request, 'course_create.html', {'form': form})
+
+def course_detail_view(request, id):
+    course = get_object_or_404(Course, id=id)
+    return render(request, 'course_detail.html', {'course': course})

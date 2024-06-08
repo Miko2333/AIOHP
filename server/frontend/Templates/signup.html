@@ -1,34 +1,96 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-<head>
-<meta name="author" content="">
-<meta name="description" content="">
-<meta http-equiv="Content-Type"content="text/html;charset=UTF-8"/>
-<meta name="viewport"content="width=device-width, initial-scale=1.0">
-<title>:: Escort - Job Portal HTML Template ::</title>
-{% load static %}
-<!-- Favicon Icon -->
-<link rel="shortcut icon" href="{% static '/img/favicon.png" />
+	<head>
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>:: Escort - Job Portal HTML Template ::</title>
+		{% load static %}
+		<!-- Favicon Icon -->
+		<link rel="shortcut icon" href="{% static '/img/favicon.png" />
 
 <!-- CSS -->
 <link rel="stylesheet" href="{% static '/plugins/bootstrap/css/bootstrap.min.css'%}">
-<link href="{% static '/plugins/icons/css/icons.css'%}" rel="stylesheet">
-<link href="{% static '/plugins/animate/animate.css'%}" rel="stylesheet">
-<link href="{% static '/plugins/bootstrap/css/bootsnav.css'%}" rel="stylesheet">
-<link href="{% static '/css/style.css'%}" rel="stylesheet">
-<link href="{% static '/css/responsive.css'%}" rel="stylesheet">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet"> 
-</head>
-<body class="utf_skin_area">
-<div class="page_preloader"></div>
-<!-- ======================= Start Navigation ===================== -->
-<nav class="navbar navbar-default navbar-mobile navbar-fixed light bootsnav">
-  <div class="container">     
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand" href="index.html"> <img src="{% static '/img/logo.png" class="logo logo-display" alt=""> <img src="{% static '/img/logo.png" class="logo logo-scrolled" alt=""> </a> 
+		<link href="{% static '/plugins/icons/css/icons.css'%}" rel="stylesheet">
+		<link href="{% static '/plugins/animate/animate.css'%}" rel="stylesheet">
+		<link href="{% static '/plugins/bootstrap/css/bootsnav.css'%}" rel="stylesheet">
+		<link href="{% static '/css/style.css'%}" rel="stylesheet">
+		<link href="{% static '/css/responsive.css'%}" rel="stylesheet">
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">
+		<style>
+			*,
+			*:before,
+			*:after {
+				box-sizing: border-box;
+			}
+
+			body {
+				line-height: 30px;
+			}
+
+			.text-red {
+				color: #f07464;
+			}
+
+			.button-toggle-wrap {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}
+
+			.button-toggle {
+				display: inline-block;
+				background: #bbbbbb;
+				border-radius: 3px;
+				height: 48px;
+				padding: 4px;
+				width: 101px;
+				position: relative;
+
+				box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.22);
+			}
+
+			.button-toggle .handle {
+				position: absolute;
+				left: 4px;
+				right: auto;
+				width: 40px;
+				height: 40px;
+				background: #fff;
+				border-radius: 3px;
+				-webkit-transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+				transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+				transform: scale(0.8);
+			}
+
+			.toggler {
+				display: none;
+			}
+
+			.toggler:checked+.button-toggle {
+				background: #f07464;
+			}
+
+			.toggler:checked+.button-toggle .handle {
+				left: 57px;
+			}
+		</style>
+	</head>
+	<body class="utf_skin_area">
+		<div class="page_preloader"></div>
+		<!-- ======================= Start Navigation ===================== -->
+		<nav class="navbar navbar-default navbar-mobile navbar-fixed light bootsnav">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i
+							class="fa fa-bars"></i> </button>
+					<a class="navbar-brand" href="index.html"> <img src="{% static '/img/logo.png" class="logo logo-display" alt=""> <img src="{% static '/img/logo.png" class="logo logo-scrolled" alt=""> </a> 
 	</div>    
     <div class="collapse navbar-collapse" id="navbar-menu">
       <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
@@ -87,50 +149,57 @@
       <div class="log-box">
         <form class="log-form" id="registerForm">
 					    {% csrf_token %}
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Name<span id="userexist" style="color:crimson; display: none;">User already exits</span></label>
-                <input id="username" type="text" class="form-control" placeholder="Name">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Password</label>
-                <input id="password" type="password" class="form-control" placeholder="********">
-								<span id="numnotenough" style="color:crimson; display: none;">At least 8 numbers</span>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Confirm Password</label>
-                <input id="password2"type="password" class="form-control" placeholder="********">
-              </div>
-            </div>          
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Phone</label>
-                <input type="text" class="form-control" placeholder="Phone Number">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group text-center mrg-top-15">
-                <button type="submit" class="btn theme-btn btn-m full-width">Sign Up</button>
-              </div>
-            </div>
-			<div class="clearfix"></div>			
-        </form>
-      </div>
-  </div>
-</section>
-<!-- ====================== End Signup Form ============= --> 
+            <div class=" col-md-6">
+						<div class="form-group">
+							<label>Name<span id="userexist" style="color:crimson; display: none;">User already exits</span></label>
+							<input id="username" type="text" class="form-control" placeholder="Name">
+						</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" placeholder="Email">
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<label>Password</label>
+						<input id="password" type="password" class="form-control" placeholder="********">
+						<span id="numnotenough" style="color:crimson; display: none;">At least 8 numbers</span>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<label>Confirm Password</label>
+						<input id="password2" type="password" class="form-control" placeholder="********">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group" style="height: 82px;">
+						<label class="button-toggle-wrap">
+							<label class="my-text">student</label>
+							<input class="toggler" type="checkbox" data-toggle="button-toggle" id="toggleCheckbox" />
+							<div class="button-toggle">
+								<div class="handle">
+									<div class="bars"></div>
+								</div>
+							</div>
+						</label>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group text-center mrg-top-15">
+						<button type="submit" class="btn theme-btn btn-m full-width">Sign Up</button>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				</form>
+			</div>
+			</div>
+			</section>
+			<!-- ====================== End Signup Form ============= -->
 
-<section class="newsletter theme-bg" style="background-image:url({% static '/img/bg-new.png)">
+			<section class="newsletter theme-bg" style="background-image:url({% static '/img/bg-new.png)">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -298,123 +367,190 @@
 <div><a href="#" class="scrollup">Scroll</a></div>
 
 <!-- Jquery js--> 
-<script src="{% static '/js/jquery.min.js'%}"></script> 
-<script src="{% static '/plugins/bootstrap/js/bootstrap.min.js'%}"></script> 
-<script src="{% static '/plugins/bootstrap/js/bootsnav.js'%}"></script> 
-<script src="{% static '/js/viewportchecker.js'%}"></script> 
-<script src="{% static '/js/slick.js'%}"></script> 
-<script src="{% static '/plugins/bootstrap/js/bootstrap-wysihtml5.js'%}"></script> 
-<script src="{% static '/plugins/aos-master/aos.js'%}"></script> 
-<script src="{% static '/plugins/nice-select/js/jquery.nice-select.min.js'%}"></script> 
-<script src="{% static '/js/custom.js'%}"></script> 
-<script>
-	$(window).load(function() {
-	  $(".page_preloader").fadeOut("slow");;
-	});	
-	AOS.init();
-</script>
-<script>
-	document.getElementById('registerForm').addEventListener('submit', function(event) {
-	    event.preventDefault();
-	    var userexist = $('#userexist');
-	    var numnotenough = $('#numnotenough');
-	    const username = document.getElementById('username').value;
-	    const password = document.getElementById('password').value;
-	    const password2 = document.getElementById('password2').value;
-	
-	    if (password !== password2) {
-	        alert('Passwords do not match!');
-	        return;
-	    }
-	
-	    const data = {
-	        username: username,
-	        password: password,
-	        password2: password2
-	    };
-	
-	    fetch('/api/register', {
-	        method: 'POST',
-	        headers: {
-	            'Content-Type': 'application/json',
-	            'X-CSRFToken': getCookie('csrftoken')  // 包含 CSRF token
-	        },
-	        body: JSON.stringify(data)
-	    })
-	    .then(response => response.json())
-	    .then(data => {
-	        console.log('Success:', data);
-	        if (data.username == "A user with that username already exists." && data.password == "Ensure this field has at least 8 characters.") {
-	            userexist.show();
-	            numnotenough.show();
-	        } else if (data.username == "A user with that username already exists.") {
-	            numnotenough.hide();
-	            userexist.show();
-	        } else if (data.password == "Ensure this field has at least 8 characters.") {
-	            userexist.hide();
-	            numnotenough.show();
-	        } else {
-	            numnotenough.hide();
-	            userexist.hide();
-	            // 成功注册后自动登录
-	            login(username, password);
-	        }
-	    })
-	    .catch((error) => {
-	        console.error('Error:', error);
-	        alert('Registration failed: ' + error.message);
-	    });
-	
-	    function login(username, password) {
-	        fetch('/api/login', {
-	            method: 'POST',
-	            headers: {
-	                'Content-Type': 'application/json',
-	                'X-CSRFToken': getCookie('csrftoken')  // 包含 CSRF token
-	            },
-	            body: JSON.stringify({
-	                username: username,
-	                password: password,
-	            })
-	        })
-	        .then(response => {
-	            if (response.ok) {
-	                return response.json();
-	            } else {
-	                throw new Error('Login failed');
-	            }
-	        })
-	        .then(data => {
-	            console.log('Login Success:', data);
-	            // 保存 token 到 localStorage
-	            localStorage.setItem('access', data.access);
-	            localStorage.setItem('refresh', data.refresh);
-	            window.location.href = '/';  // 跳转到主页
-	        })
-	        .catch((error) => {
-	            console.error('Login Error:', error);
-	            alert('Login failed: ' + error.message);
-	        });
-	    }
-	
-	    function getCookie(name) {
-	        let cookieValue = null;
-	        if (document.cookie && document.cookie !== '') {
-	            const cookies = document.cookie.split(';');
-	            for (let i = 0; i < cookies.length; i++) {
-	                const cookie = cookies[i].trim();
-	                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-	                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-	                    break;
-	                }
-	            }
-	        }
-	        return cookieValue;
-	    }
-	});
+<script src="{% static '/js/jquery.min.js'%}">
+				</script>
+				<script src="{% static '/plugins/bootstrap/js/bootstrap.min.js'%}"></script>
+				<script src="{% static '/plugins/bootstrap/js/bootsnav.js'%}"></script>
+				<script src="{% static '/js/viewportchecker.js'%}"></script>
+				<script src="{% static '/js/slick.js'%}"></script>
+				<script src="{% static '/plugins/bootstrap/js/bootstrap-wysihtml5.js'%}"></script>
+				<script src="{% static '/plugins/aos-master/aos.js'%}"></script>
+				<script src="{% static '/plugins/nice-select/js/jquery.nice-select.min.js'%}"></script>
+				<script src="{% static '/js/custom.js'%}"></script>
+				<script>
+					$(window).load(function() {
+						$(".page_preloader").fadeOut("slow");;
+					});
+					AOS.init();
+				</script>
+				<script>
+					document.getElementById('registerForm').addEventListener('submit', function(event) {
+						event.preventDefault();
+						var userexist = $('#userexist');
+						var numnotenough = $('#numnotenough');
+						const username = document.getElementById('username').value;
+						const password = document.getElementById('password').value;
+						const password2 = document.getElementById('password2').value;
 
+						if (password !== password2) {
+							alert('Passwords do not match!');
+							return;
+						}
 
+						const data = {
+							username: username,
+							password: password,
+							password2: password2
+						};
 
-</script>
-</body>
+						fetch('/api/register', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+									'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+								},
+								body: JSON.stringify(data)
+							})
+							.then(response => response.json())
+							.then(data => {
+								console.log('Success:', data);
+								if (data.username == "A user with that username already exists." && data.password ==
+									"Ensure this field has at least 8 characters.") {
+									userexist.show();
+									numnotenough.show();
+								} else if (data.username == "A user with that username already exists.") {
+									numnotenough.hide();
+									userexist.show();
+								} else if (data.password == "Ensure this field has at least 8 characters.") {
+									userexist.hide();
+									numnotenough.show();
+								} else {
+									numnotenough.hide();
+									userexist.hide();
+									// 成功注册后自动登录
+									login(username, password);
+								}
+							})
+							.catch((error) => {
+								console.error('Error:', error);
+								alert('Registration failed: ' + error.message);
+							});
+
+						function login(username, password) {
+							fetch('/api/login', {
+									method: 'POST',
+									headers: {
+										'Content-Type': 'application/json',
+										'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+									},
+									body: JSON.stringify({
+										username: username,
+										password: password,
+									})
+								})
+								.then(response => {
+									if (response.ok) {
+										return response.json();
+									} else {
+										throw new Error('Login failed');
+									}
+								})
+								.then(data => {
+									console.log('Login Success:', data);
+									// 保存 token 到 localStorage
+									localStorage.setItem('access', data.access);
+									localStorage.setItem('refresh', data.refresh);
+									localStorage.setItem('user_id', data.user);
+									addrule(data.user,username);
+
+								})
+								.catch((error) => {
+									console.error('Login Error:', error);
+									alert('Login failed: ' + error.message);
+								});
+						}
+
+						function addrule(id,username) {
+							if (document.getElementById('toggleCheckbox').checked) {
+								addTeacher(id,username);
+							} else {
+								addStudent(id,username);
+							}
+						}
+
+						function getCookie(name) {
+							let cookieValue = null;
+							if (document.cookie && document.cookie !== '') {
+								const cookies = document.cookie.split(';');
+								for (let i = 0; i < cookies.length; i++) {
+									const cookie = cookies[i].trim();
+									if (cookie.substring(0, name.length + 1) === (name + '=')) {
+										cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+										break;
+									}
+								}
+							}
+							return cookieValue;
+						}
+
+					});
+
+					function addTeacher(id,username) {
+						fetch('/api/teachers', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({
+									name: username,
+									user: id,
+								})
+							})
+							.then(response => response.json())
+							.then(data => {
+								console.log('Success:', data);
+								window.location.href = '/'; // 跳转到主页 
+							})
+							.catch(error => {
+								console.error('Error:', error);
+							});
+					}
+
+					function addStudent(id,username) {
+						alert(username);
+						fetch('/api/students', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({
+									name: username,
+									user: id,
+								})
+							})
+							.then(response => response.json())
+							.then(data => {
+								console.log('Success:', data);
+ 								window.location.href = '/'; 
+							})
+							.catch(error => {
+								console.error('Error:', error);
+							});
+					}
+				</script>
+				<script>
+					// non of use
+					$(function() {
+						$("[data-toggle]").click(function() {
+							var target = $(".my-text");
+							if ($(this).prop('checked')) {
+								target.html('teacher');
+							} else {
+								target.html('student');
+							}
+						})
+					})
+				</script>
+
+	</body>
 </html>

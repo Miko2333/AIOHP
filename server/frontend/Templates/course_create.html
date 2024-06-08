@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>SplashDash</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!-- Start Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dcss/fonts.css' %}">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'dcss/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dcss/icofont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dcss/swiper.min.css' %}">
+    <!-- Page Specific -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dcss/nice-select.css' %}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dcss/style.css' %}">
+    <link rel="stylesheet" id="theme-change" type="text/css" href="#">
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <style>
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #file-upload {
+            display: none;
+        }
+
+        #image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .input-group {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group-text {
+            white-space: nowrap;
+        }
+
+        .form-select,
+        .form-control {
+            width: 100%;
+            flex: 1;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"><img src="{% static 'images/loader.gif' %}" alt=""/></div>
+    </div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <div class="main-content">
+            <!-- Page Title Start -->
+            <div class="row">
+                <div class="col xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Create a new course</h4>
+                        </div>
+                        <div class="breadcrumb-list">
+                            <ul>
+                                <li class="breadcrumb-link"><a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>Dashboard</a></li>
+                                <li class="breadcrumb-link active">Create Course</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Products view Start -->
+            <div class="row">
+                <div class="col-xl-4">
+                    <form id="course-form" method="post" enctype="multipart/form-data">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">New Course</h4>
+                                <div class="card-options"><a class="card-options-collapse" href="javascript:;" data-bs-toggle="card-collapse" data-bs-original-title="" title=""><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="javascript:;" data-bs-toggle="card-remove" data-bs-original-title="" title=""><i class="fe fe-x"></i></a></div>
+                            </div>
+                            <div class="card-body">
+                                {% csrf_token %}
+                                <div class="profile-title">
+                                    <div class="media ad-profile2-img">
+                                        <div class="media-body">
+                                            <div class="media-body" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                                                <div id="image-preview" style="width: 200px; height: 200px; border: 2px dashed #ccc; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                                                    <span>No image chosen</span>
+                                                </div>
+                                                <label for="file-upload" class="custom-file-upload">Upload Image</label>
+                                                <input id="file-upload" type="file" name="file" accept="image/*" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Course name</label>
+                                        <input class="form-control" type="text" name="name" placeholder="Course name" required>
+                                        <div id="name-error" class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Teacher ID</label>
+                                        <input class="form-control" type="number" name="teacher" placeholder="Teacher ID" required>
+                                        <div id="teacher-error" class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Class number</label>
+                                        <input class="form-control" type="number" name="class_number" placeholder="Class number" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-xl-8">
+                    <div  class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Course detail</h4>
+                            <div class="card-options"><a class="card-options-collapse" href="javascript:;" data-bs-toggle="card-collapse" data-bs-original-title="" title=""><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="javascript:;" data-bs-toggle="card-remove" data-bs-original-title="" title=""><i class="fe fe-x"></i></a></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Academy</label>
+                                        <input class="form-control" type="text" name="academy" placeholder="Academy">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Address</label>
+                                        <input class="form-control" type="text" name="address" placeholder="Address">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Capacity</label>
+                                        <input class="form-control" type="number" name="capacity" placeholder="Capacity">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Total class hours</label>
+                                        <select class="form-control btn-square" name="total_class_hours">
+                                            <option value="">--Select--</option>
+                                            <option value="32">32 hours</option>
+                                            <option value="48">48 hours</option>
+                                            <option value="64">64 hours</option>
+                                            <option value="128">128 hours</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Time</label>
+                                        <div style="display: flex; gap: 10px; align-items: center;">
+                                            <div class="input-group" style="flex: 1;">
+                                                <span class="input-group-text">Per week</span>
+                                                <select class="form-select" name="day_of_week">
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                    <option value="Sunday">Sunday</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group" style="flex: 1;">
+                                                <span class="input-group-text">Start Time</span>
+                                                <input class="form-control" type="time" name="start_time">
+                                            </div>
+                                            <div class="input-group" style="flex: 1;">
+                                                <span class="input-group-text">End Time</span>
+                                                <input class="form-control" type="time" name="end_time">
+                                            </div>
+                                        </div>
+                                        <div id="time-error" class="error-message"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div>
+                                        <label class="form-label">Description</label>
+                                        <textarea class="form-control" rows="9" name="description" placeholder="Enter Class Description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                                <button class="btn btn-primary squer-btn" type="submit" data-bs-original-title="" title="">Update Profile</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="ad-footer-btm">
+                <p>Copyright 2021 © SplashDash All Rights By <a href="www.jq22.com/index.html">jq22</a>.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Slide Setting Box -->
+    <div class="slide-setting-box">
+        <div class="slide-setting-holder">
+            <div class="setting-box-head">
+                <h4>General Settings</h4>
+                <a href="javascript:void(0);" class="close-btn">Close</a></div>
+            <div class="setting-box-body">
+                <div class="p-4">
+                    <div class="switch-settings">
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">Notifications</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox55" type="checkbox">
+                                <label for="checkbox55"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">Show your emails</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox56" type="checkbox">
+                                <label for="checkbox56"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">Show Task statistics</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox57" type="checkbox">
+                                <label for="checkbox57"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">Show recent activity</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox58" type="checkbox">
+                                <label for="checkbox58"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">System Logs</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox59" type="checkbox">
+                                <label for="checkbox59"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">Error Reporting</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox60" type="checkbox">
+                                <label for="checkbox60"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3"><span class="mr-auto fs-15">Show your status to all</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox61" type="checkbox">
+                                <label for="checkbox61"></label>
+                            </div>
+                        </div>
+                        <div class="d-flex"><span class="mr-auto fs-15">Keep up to date</span>
+                            <div class="checkbox checkbox-toggle">
+                                <input id="checkbox62" type="checkbox">
+                                <label for="checkbox62"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 border-top border-bottom">
+                <h5 class="border-bottom-0 mb-0">Overview</h5>
+            </div>
+            <div class="p-4">
+                <div class="progress-wrapper">
+                    <div class="mb-3">
+                        <p class="mb-2">Achieves<span class="float-right text-muted font-weight-normal">95%</span></p>
+                        <div class="progress h-1">
+                            <div class="progress-bar bg-primary col-3" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-wrapper pt-2">
+                    <div class="mb-3">
+                        <p class="mb-2">Projects<span class="float-right text-muted font-weight-normal">65%</span></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-secondary col-3" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-wrapper pt-2">
+                    <div class="mb-3">
+                        <p class="mb-2">Earnings<span class="float-right text-muted font-weight-normal">55%</span></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-success col-8" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-wrapper pt-2">
+                    <div class="mb-3">
+                        <p class="mb-2">Balance<span class="float-right text-muted font-weight-normal">50%</span></p>
+                        <div class="progress h-1">
+                            <div class="progress-bar bg-warning w-50 " role="progressbar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-wrapper pt-2">
+                    <div class="mb-3">
+                        <p class="mb-2">Total Profits<span class="float-right text-muted font-weight-normal">80%</span></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-info col-6" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-wrapper pt-2">
+                    <div class="mb-3">
+                        <p class="mb-2">Total Likes<span class="float-right text-muted font-weight-normal">75%</span></p>
+                        <div class="progress h-1">
+                            <div class="progress-bar bg-teal w-75" role="progressbar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Color Setting -->
+    <div id="style-switcher">
+        <div>
+            <ul class="colors">
+                <li>
+                    <p class='colorchange' id='color'></p>
+                </li>
+                <li>
+                    <p class='colorchange' id='color2'></p>
+                </li>
+                <li>
+                    <p class='colorchange' id='color3'></p>
+                </li>
+                <li>
+                    <p class='colorchange' id='color4'></p>
+                </li>
+                <li>
+                    <p class='colorchange' id='color5'></p>
+                </li>
+                <li>
+                    <p class='colorchange' id='style'></p>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom"><a href="" class="settings"><i class="fa fa-cog" aria-hidden="true"></i></a></div>
+    </div>
+    <!-- Color Setting -->
+    <!-- Script Start -->
+    <script src="{% static 'djs/jquery.min.js' %}"></script>
+    <script src="{% static 'djs/popper.min.js' %}"></script>
+    <script src="{% static 'djs/bootstrap.min.js' %}"></script>
+    <script src="{% static 'djs/swiper.min.js' %}"></script>
+    <!-- Page Specific -->
+    <script src="{% static 'djs/nice-select.min.js' %}"></script>
+    <!-- Custom Script -->
+    <script src="{% static 'djs/custom.js' %}"></script>
+    <script>
+$(document).ready(function() {
+    var teachers = [];
+
+    // Fetch teachers data
+    $.ajax({
+        type: 'GET',
+        url: '/api/teachers',
+        contentType: 'application/json',
+        success: function(response) {
+            teachers = response;
+            console.log('Teachers fetched successfully:', teachers);
+        },
+        error: function(response) {
+            console.log('Failed to fetch teachers:', response);
+        }
+    });
+
+    document.getElementById('file-upload').addEventListener('change', function() {
+        var preview = document.getElementById('image-preview');
+        var file = this.files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener('load', function() {
+            var image = new Image();
+            image.src = reader.result;
+            preview.innerHTML = '';
+            preview.appendChild(image);
+            console.log('Image preview updated.');
+        });
+
+        if (file) {
+            reader.readAsDataURL(file);
+            console.log('File selected:', file);
+        }
+    });
+
+    function validateForm() {
+        var name = document.getElementsByName('name')[0].value;
+        var teacherId = document.getElementsByName('teacher')[0].value;
+        var startTime = document.getElementsByName('start_time')[0].value;
+        var endTime = document.getElementsByName('end_time')[0].value;
+        var isValid = true;
+
+        // Clear previous error messages
+        document.getElementById('name-error').textContent = '';
+        document.getElementById('teacher-error').textContent = '';
+        document.getElementById('time-error').textContent = '';
+
+        if (!name) {
+            document.getElementById('name-error').textContent = 'Course name is required.';
+            isValid = false;
+        }
+
+        if (/[\d]/.test(name)) {
+            document.getElementById('name-error').textContent = 'Course name should not contain numbers.';
+            isValid = false;
+        }
+
+        if (!teacherId) {
+            document.getElementById('teacher-error').textContent = 'Teacher ID is required.';
+            isValid = false;
+        } else {
+            var teacherExists = teachers.some(function(teacher) {
+				if(localStorage.getItem('user_id')==teacherId)
+				return teacher.id == teacherId;
+            });
+
+            if (!teacherExists) {
+                document.getElementById('teacher-error').textContent = 'Teacher ID Wrong';
+                isValid = false;
+            }
+        }
+
+        if (!startTime || !endTime) {
+            document.getElementById('time-error').textContent = 'Start time and end time are required.';
+            isValid = false;
+        } else {
+            var start = new Date('1970-01-01T' + startTime + 'Z');
+            var end = new Date('1970-01-01T' + endTime + 'Z');
+
+            if (start >= end) {
+                document.getElementById('time-error').textContent = 'Start time must be before end time.';
+                isValid = false;
+            }
+
+            var diff = (end - start) / (1000 * 60);
+            if (diff < 45) {
+                document.getElementById('time-error').textContent = 'Class duration must be greater than 45 minutes.';
+                isValid = false;
+            }
+        }
+
+        return isValid;
+    }
+
+    $('#course-form').on('submit', function(e) {
+        e.preventDefault();
+        console.log('Form submission prevented.');
+
+        if (!validateForm()) {
+            return;
+        }
+
+        var formData = new FormData(this);
+        console.log('Form data:', formData);
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "course-create" %}', // Replace with the actual URL path
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function() {
+                console.log('Sending AJAX request...');
+            },
+            success: function(response) {
+                console.log('AJAX request succeeded.');
+                console.log('Response:', response);
+                alert('Course created successfully');
+                window.location.href = response.redirect_url; // Replace with the actual redirect URL
+            },
+            error: function(response) {
+                console.log('AJAX request failed.');
+                console.log('Error response:', response);
+                alert('Error: ' + response.responseJSON.error);
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

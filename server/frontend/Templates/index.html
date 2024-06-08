@@ -69,8 +69,10 @@
 						<li class="dropdown"> <a href="contact.html">Contact</a> </li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="br-right"  style="cursor: pointer;"><a class="btn-signup red-btn" data-toggle="modal" data-target="#signin"><i
+						<li  id="login"  class="br-right"  style="cursor: pointer;"><a class="btn-signup red-btn" data-toggle="modal" data-target="#signin"><i
 									class="login-icon ti-user"></i>Login</a></li>
+						<li id="exit" class="br-right"  style="cursor: pointer; display: none;"><a class="btn-signup red-btn" ><i
+									class="login-icon ti-user"></i>EXIT</a></li>
 						<li class="sign-up" id="register" style="cursor: pointer;"><a class="btn-signup red-btn" href="signup"><span
 									class="ti-briefcase"></span>Register</a></li>
 						<li class="status-container sign-up " id="user-info" style="display: none; margin: 25px;">
@@ -768,9 +770,10 @@
 											Remember Me </span> <a href="#" title="Forget" class="fl-right">Forgot
 											Password?</a>
 									</div>
+
 									<div class="form-group text-center">
 										<button type="button" class="btn theme-btn full-width btn-m"
-											id="employerLoginButton">LogIn</button>
+											id="employerLoginButton">Login</button>
 									</div>
 									<div class="form-group">
 										<p id="employerError" style="color: red; display: none;"></p>
@@ -886,11 +889,15 @@
 								console.log('用户已登录为：', data.username);
 								$("#user-info").show();
 								$("#register").hide();
+								$("#login").hide();
+								$("#exit").show();
 								userInfo.innerHTML = '<i class="login-icon ti-user"></i> 欢迎：' + data.username;
 							} else {
 								console.log('用户未登录。');
 								 $("#user-info").hide();
-								 $("#register").show();								
+								 $("#register").show();	
+								$("#login").hide();
+								$("#exit").hide();
 								userInfo.innerHTML = '';
 								userInfo.textContent = '';
 							}
@@ -900,6 +907,21 @@
 						console.error('错误：', error);
 					});
 			}
+		</script>
+		
+		<script>
+		document.getElementById('exit').addEventListener('click', function(event) {
+		    event.preventDefault();
+		
+		    // 清除本地存储中的用户信息
+		    localStorage.removeItem('access');
+		    localStorage.removeItem('refresh');
+		    localStorage.removeItem('user_id');
+		    localStorage.removeItem('username');
+		
+		    // 重定向到登录页面或主页
+		    window.location.href = '/'; // 修改为您的登录页面路径
+		});
 		</script>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {

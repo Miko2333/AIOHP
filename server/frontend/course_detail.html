@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.name }}</title>
+</head>
+<body>
+    <h1>{{ course.name }}</h1>
+    <p>{{ course.description }}</p>
+    <p>Teacher: {{ course.teacher.name }}</p>
+    <p>Students:</p>
+    <ul>
+        {% for student in course.student.all %}
+            <li>{{ student.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
