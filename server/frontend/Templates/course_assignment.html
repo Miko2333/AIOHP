@@ -168,11 +168,12 @@
     </div>
 
     <script>
-        function navigateToProblem(problemId,teacherId) {
-            window.location.href = `/homework/${problemId}/teacher/${teacherId}`;
+        function navigateToProblem(courseId,problemId,teacherId) {
+            window.location.href = `/submission/course/${courseId}/homework/${problemId}`;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+			
             const path = window.location.pathname;
             const courseRegex = /\/course\/(\d+)\/teacher\/(\d+)\//;
             const courseMatch = path.match(courseRegex);
@@ -234,7 +235,7 @@
                             // 动态创建li元素并添加到listContent
 							console.log(homework.id)
                             listContent.innerHTML += `
-                                <li onclick="navigateToProblem(${homework.id},${teacherId})">
+                                <li onclick="navigateToProblem(${courseId},${homework.id},${teacherId})">
                                     <div class="problem-title">
                                         <i class="fas fa-code"></i>
                                         <span>${homework.name}</span>

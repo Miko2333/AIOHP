@@ -123,7 +123,7 @@ def homework_detail_teacher_view(request, homework_id,teacher_id):
 def homework_detail_student_view(request,course_id, homework_id,student_id):
     course = get_object_or_404(Course, id=course_id)
     homework = get_object_or_404(Homework, id=homework_id)
-    student = get_object_or_404(Teacher, id=student_id)
+    student = get_object_or_404(Student, id=student_id)
     return render(request, 'homework_detail.html', {'course': course,'homework': homework,'student': student})
 	
 
@@ -137,7 +137,7 @@ def grade_homework(url, ti_mu, ping_fen, zuo_ye):
     messages = [
         {
             "role": "user",
-            "content": "你现在需要作为助教，帮我批阅学生的作业，我会给你题目要求，评分细则，以及学生的作业，请你给出一个详细的评价，指出学生作业中的不足，并给出参考分数。" +
+            "content": "你现在需要作为助教，帮我批阅学生的作业，我会给你题目要求，评分细则，以及学生的作业，请你给出一个详细的评价，指出学生作业中的不足，并给出参考分数。对不完善的代码进行修复及改正，给出完整代码，将学生所写代码和改正后的代码也一并返回" +
                        "题目要求：" + ti_mu +
                        "评分细则：" + ping_fen +
                        "学生提交的作业：" + zuo_ye +
@@ -197,7 +197,7 @@ def submit_homework(request):
 
 def submission_detail(request, pk,homework_id,course_id,student_id):
     homework = get_object_or_404(Homework, id=homework_id)
-    student = get_object_or_404(Teacher, id=student_id)
+    student = get_object_or_404(Student, id=student_id)
     course = get_object_or_404(Course, id=course_id)
     submission = Submission.objects.get(pk=pk)
     return render(request, 'submission_detail.html', {'submission': submission,'course': course,'homework': homework,'student': student})
@@ -208,7 +208,7 @@ def courses(request):
 	
 def submission_list(request,course_id,homework_id,student_id):
     homework = get_object_or_404(Homework, id=homework_id)
-    student = get_object_or_404(Teacher, id=student_id)
+    student = get_object_or_404(Student, id=student_id)
     course = get_object_or_404(Course, id=course_id)
     return render(request, 'submission_list.html', {'course': course,'homework': homework,'student': student})
 

@@ -251,7 +251,7 @@ function logout() {
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('final-score').value = data.score || '';
-                    document.getElementById('final-feedback').value = data.comment || '';
+                    document.getElementById('final-feedback').value = data.teacher_command || '';
                 })
                 .catch(error => {
                     console.error('获取最终分数和反馈时出错:', error);

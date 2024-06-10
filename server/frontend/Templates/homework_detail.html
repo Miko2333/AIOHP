@@ -116,7 +116,11 @@
         <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                const homeworkId = 4; // 这里替换成实际的作业ID
+                const url = window.location.href;
+                const matches = url.match(/\/course\/(\d+)\/homework\/(\d+)\/student\/(\d+)/);
+                
+                	const courseId = matches[1];
+                	const homeworkId = matches[2];
                 fetch(`/api/homeworks/${homeworkId}`)
                     .then(response => response.json())
                     .then(data => {
@@ -169,6 +173,11 @@
 <script>
 	var ti_mu = null; // 在外部作用域中定义题目内容
 	var editor;
+const url = window.location.href;
+const matches = url.match(/\/course\/(\d+)\/homework\/(\d+)\/student\/(\d+)/);
+
+	const courseId = matches[1];
+	const homeworkId = matches[2];
 	
 	require.config({
 	    paths: {
@@ -200,9 +209,9 @@
 	    window.addEventListener('resize', function () {
 	        editor.layout();
 	    });
-	
+
 	    // 获取作业详情
-	    const homeworkId = 4; // 这里替换成实际的作业ID
+
 	    fetch(`/api/homeworks/${homeworkId}`)
 	        .then(response => response.json())
 	        .then(data => {
