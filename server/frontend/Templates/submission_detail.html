@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生作业反馈</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+        .section-content {
+            margin-left: 20px;
+            white-space: pre-wrap;
+            color: #34495e;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .overall-rating {
+            font-weight: bold;
+            color: #333333;
+            font-size: 1.2em;
+        }
+        .input-section {
+            margin-top: 20px;
+        }
+        .input-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-section input, .input-section textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .input-section button:hover {
+            background-color: #45a049;
+        }
+        .logout-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 3px 3px;
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <button class="logout-button" onclick="logout()">退出</button>
+    <div class="container" id="feedback-container">
+        <!-- 动态生成的反馈内容将放置在这里 -->
+    </div>
+    <div class="input-section" id="teacher-input-section" style="display: none;">
+        <label for="score">Score:</label>
+        <input type="number" id="score" name="score" min="0" max="100">
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4"></textarea>
+        <button id="submit-feedback">Submit Feedback</button>
+    </div>
+    <div class="input-section" id="student-view-section" style="display: none;">
+        <label for="final-score">Final Score:</label>
+        <input type="number" id="final-score" name="final-score" readonly>
+        <label for="final-feedback">Final Feedback:</label>
+        <textarea id="final-feedback" name="final-feedback" rows="4" readonly></textarea>
+    </div>
+    <script>
+function logout() {
+    const url = window.location.href;
+    const matches = url.match(/submission\/(\d+)\/homework\/(\d+)\/course\/(\d+)\/student\/(\d+)\//);
+    if (matches) {
+        var studentId = matches[4];
+		var courseId = matches[3];
+		var homeworkId= matches[2];
+    }
+    // 执行退出操作，例如清除本地存储并重定向到登录页面
+    window.location.href = `/submission/course/${courseId}/homework/${homeworkId}/student/${studentId}`; // 假设退出后重定向到学生的提交页面
+}
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ids = getIdsFromUrl();
+            if (ids) {
+                fetchFeedback(ids.submissionId);
+                checkUserRole();
+            }
+        });
+
+        function getIdsFromUrl() {
+            const url = window.location.href;
+            const matches = url.match(/submission\/(\d+)\/homework\/(\d+)\/course\/(\d+)\/student\/(\d+)\//);
+            if (matches) {
+                return {
+                    submissionId: matches[1],
+                    homeworkId: matches[2],
+                    courseId: matches[3],
+                    studentId: matches[4]
+                };
+            } else {
+                console.error('URL 中未找到匹配的 ID');
+                return null;
+            }
+        }
+
+        function fetchFeedback(id) {
+            fetch(`/api/submissions/${id}`) // 你的API端点
+                .then(response => response.json())
+                .then(data => {
+                    if (data.feedback) {
+                        displayFeedback(data.feedback);
+                    } else {
+                        console.error('反馈记录格式不正确:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('获取反馈记录时出错:', error);
+                });
+        }
+
+        function displayFeedback(feedback) {
+            const container = document.getElementById('feedback-container');
+
+            // 替换单引号为双引号以符合 JSON 标准
+            const jsonString = feedback.replace(/'/g, '"');
+
+            try {
+                const parsedFeedback = JSON.parse(jsonString);
+                const message = parsedFeedback.content;
+
+                // 按换行符拆分内容
+                const sections = message.split('\\n\\n');
+                
+                sections.forEach(section => {
+                    // 忽略空段落
+                    if (section.trim() === '') return;
+                    
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'section';
+                    
+                    const parts = section.split('\\n   - ');
+                    const title = parts[0];
+                    const content = parts.slice(1).join('\\n   - ');
+
+                    const titleDiv = document.createElement('div');
+
+
+                    const contentDiv = document.createElement('pre');
+                    contentDiv.className = 'section-content';
+                    contentDiv.textContent = content;
+
+                    sectionDiv.appendChild(titleDiv);
+                    sectionDiv.appendChild(contentDiv);
+                    
+                    container.appendChild(sectionDiv);
+                });
+
+                // 添加综合评价部分
+                const overallRatingDiv = document.createElement('pre');
+                overallRatingDiv.className = 'overall-rating';
+                overallRatingDiv.textContent = sections.pop();
+                container.appendChild(overallRatingDiv);
+
+            } catch (error) {
+                console.error('解析反馈记录时出错:', error);
+            }
+        }
+
+        function checkUserRole() {
+            const userId = localStorage.getItem('user_id');
+            if (!userId) {
+                alert('No user ID found in localStorage. Please log in first.');
+                return;
+            }
+
+            fetch('/api/students', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(students => {
+                const student = students.find(s => s.user == userId);
+                if (student) {
+                    displayStudentView();
+                } else {
+                    fetch('/api/teachers', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(teachers => {
+                        const teacher = teachers.find(t => t.user == userId);
+                        if (teacher) {
+                            displayTeacherView();
+                        }
+                    });
+                }
+            });
+        }
+
+        function displayTeacherView() {
+            const teacherSection = document.getElementById('teacher-input-section');
+            teacherSection.style.display = 'block';
+            document.getElementById('submit-feedback').addEventListener('click', submitFeedback);
+        }
+
+        function displayStudentView() {
+            const studentSection = document.getElementById('student-view-section');
+            studentSection.style.display = 'block';
+
+            const ids = getIdsFromUrl();
+            fetch(`/api/submissions/${ids.submissionId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('final-score').value = data.score || '';
+                    document.getElementById('final-feedback').value = data.comment || '';
+                })
+                .catch(error => {
+                    console.error('获取最终分数和反馈时出错:', error);
+                });
+        }
+
+        function submitFeedback() {
+            const ids = getIdsFromUrl();
+            const score = document.getElementById('score').value;
+            const feedback = document.getElementById('feedback').value;
+
+            const feedbackData = {
+                score: score,
+                teacher_command: feedback
+            };
+
+            fetch(`/api/submissions/${ids.submissionId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(feedbackData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('反馈提交成功');
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('提交反馈时出错:', error);
+            });
+        }
+    </script>
+</body>
+</html>

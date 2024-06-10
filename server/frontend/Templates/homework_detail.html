@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码提交页面</title>
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+	<style>
+        body {
+            background-color: #2b2b2b;
+            color: #dcdcdc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            background-color: #1e1e1e;
+            width: 40%;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: hidden;
+        }
+        .code-output-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 100%;
+        }
+        .content-section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .code-editor {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 100%;
+            margin-bottom: 10px;
+        }
+        .code-editor .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .code-editor .content-header i {
+            margin-right: 10px;
+        }
+        .output-section {
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .output-section .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .output-section .output-content {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .monaco-editor {
+            flex: 1;
+            border: 1px solid #3c3c3c;
+            border-radius: 8px;
+            height: 40vh;
+        }
+        .submit-button {
+            background-color: #007acc;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            margin-left: 10px;
+            align-self: flex-end;
+        }
+        .submit-button:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+	
+    <div class="content-header">
+        <div><i class="fas fa-file-alt"></i> 题目描述</div>
+        <div>...</div>
+    </div>
+    <div id="froala-editor"></div>
+    <div class="content-section" id="homework-details">
+        <h3 id="homework-title">题目标题</h3>
+        <div id="example"></div>
+        <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const homeworkId = 4; // 这里替换成实际的作业ID
+                fetch(`/api/homeworks/${homeworkId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var editor = new FroalaEditor('#example', {
+                            toolbarInline: false,
+                            toolbarButtons: [],
+                            pluginsEnabled: [],
+                            readOnly: true,
+                            attribution: false, // 去掉 Froala 自带的 logo
+                            theme: 'dark' // 使用暗色主题
+                        }, function () {
+                            editor.html.set(data.content);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('获取作业详情时出错:', error);
+                    });
+            });
+        </script>
+        <p><strong>难度：</strong><span id="homework-difficulty"></span></p>
+        <p><strong>截止日期：</strong><span id="homework-due-date"></span></p>
+        <p><strong>标签：</strong><span id="homework-tags"></span></p>
+    </div>
+</div>
+<div class="content">
+    <div class="code-output-container">
+        <div class="code-editor">
+            <div class="content-header">
+                <div><i class="fas fa-code"></i> 代码编辑器</div>
+                <div>...</div>
+            </div>
+            <div id="monaco-editor" class="monaco-editor"></div>
+            <div style="display: flex; justify-content: flex-end;">
+                <button id="submit-button" class="submit-button">提交代码</button>
+            </div>
+        </div>
+   <!--     <div class="output-section">
+            <div class="content-header">
+                <div><i class="fas fa-terminal"></i> 输出</div>
+                <div>...</div>
+            </div>
+            <div  class="output-content" id="output-pre">
+                <pre>输出内容将在这里显示...</pre>
+            </div>
+        </div>
+    --></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.22.3/min/vs/loader.js"></script>
+<script>
+	var ti_mu = null; // 在外部作用域中定义题目内容
+	var editor;
+	
+	require.config({
+	    paths: {
+	        vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.22.3/min/vs'
+	    }
+	});
+	
+	require(['vs/editor/editor.main'], function () {
+	    editor = monaco.editor.create(document.getElementById('monaco-editor'), {
+	        value: [
+	            'function merge(nums1, m, nums2, n) {',
+	            '    let i = m - 1;',
+	            '    let j = n - 1;',
+	            '    let k = m + n - 1;',
+	            '    while (j >= 0) {',
+	            '        if (i >= 0 && nums1[i] > nums2[j]) {',
+	            '            nums1[k--] = nums1[i--];',
+	            '        } else {',
+	            '            nums1[k--] = nums2[j--];',
+	            '        }',
+	            '    }',
+	            '    return nums1;',
+	            '}'
+	        ].join('\n'),
+	        language: 'javascript',
+	        theme: 'vs-dark'
+	    });
+	
+	    window.addEventListener('resize', function () {
+	        editor.layout();
+	    });
+	
+	    // 获取作业详情
+	    const homeworkId = 4; // 这里替换成实际的作业ID
+	    fetch(`/api/homeworks/${homeworkId}`)
+	        .then(response => response.json())
+	        .then(data => {
+	            document.getElementById('homework-title').innerText = data.name;
+	            document.getElementById('homework-difficulty').innerText = data.difficulty;
+	            document.getElementById('homework-due-date').innerText = new Date(data.due_date).toLocaleString();
+	            document.getElementById('homework-tags').innerText = data.tags;
+	            ti_mu = data.content; // 将题目内容赋值给 ti_mu
+	        })
+	        .catch(error => {
+	            console.error('获取作业详情时出错:', error);
+	        });
+	});
+	
+	function getCookie(name) {
+	    let cookieValue = null;
+	    if (document.cookie && document.cookie !== '') {
+	        const cookies = document.cookie.split(';');
+	        for (let i = 0; i < cookies.length; i++) {
+	            const cookie = cookies[i].trim();
+	            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
+	}
+	
+	document.getElementById('submit-button').addEventListener('click', function(event) {
+	    event.preventDefault(); // 阻止默认表单提交行为
+	    var url = window.location.href;
+	    var matches = url.match(/course\/(\d+)\/homework\/(\d+)\/student\/(\d+)/);
+	
+	    if (matches) {
+	        var courseId = matches[1];
+	        var homeworkId = matches[2];
+	        var studentId = matches[3];
+	        console.log('Homework ID:', homeworkId);
+	        console.log('Student ID:', studentId);
+	    } else {
+	        console.error('URL 中未找到 homework ID 或 student ID');
+	    }
+	
+	    const codeContent = editor.getValue();
+	    const formData = new FormData();
+	    formData.append('content', codeContent);
+	    formData.append('homework', homeworkId); // 添加homework字段
+	    formData.append('student', studentId); // 添加student字段
+	
+	    const submitButton = document.getElementById('submit-button');
+	    submitButton.innerText = '请稍后';
+	    submitButton.disabled = true; // 禁用按钮以防止多次点击
+	
+	    fetch('/submit/', {
+	        method: 'POST',
+	        body: formData,
+	        headers: {
+	            'X-CSRFToken': getCookie('csrftoken')
+	        }
+	    })
+	    .then(response => {
+	        if (!response.ok) {
+	            throw new Error('Network response was not ok');
+	        }
+	        return response.json();
+	    })
+	    .then(data => {
+	        if (data.success) {
+	            const submission = data.submission;
+	            console.log(submission.feedback);
+	
+	            // 创建一个新的按钮用于查看报告
+	            const newButton = document.createElement('button');
+	            newButton.innerText = '查看报告';
+	            newButton.className = 'submit-button';
+	            newButton.addEventListener('click', function() {
+	                window.location.href = `/submission/${submission.id}/homework/${homeworkId}/course/${courseId}/student/${studentId}/`;
+	            });
+	
+	            // 替换旧的按钮
+	            submitButton.parentNode.replaceChild(newButton, submitButton);
+	        } else {
+	            // 处理提交失败的情况
+	            submitButton.innerText = '提交代码';
+	            submitButton.disabled = false; // 重新启用按钮
+	        }
+	    })
+	    .catch(error => {
+	        console.error('提交过程中发生错误：', error);
+	        submitButton.innerText = '提交代码';
+	        submitButton.disabled = false; // 重新启用按钮
+	    });
+	});
+
+</script>
+</body>

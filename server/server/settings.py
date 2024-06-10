@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'drf_yasg', # Docs
     'corsheaders',
     'accounts',
+	'froala_editor',
 ]
 
 # AUTH_USER_MODEL = 'users.User'

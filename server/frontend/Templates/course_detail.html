@@ -25,6 +25,7 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 <body>
+	
 <div class="loader">
   <div class="spinner"><img src="{% static 'images/loader.gif' %}" alt=""/></div>
 </div>
@@ -36,18 +37,17 @@
       <div class="col xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="page-title-wrapper">
           <div class="page-title-box">
-            <h4 class="page-title">Course Single</h4>
+            <h4 class="page-title">课程详情</h4>
           </div>
           <div class="breadcrumb-list">
             <ul>
-              <li class="breadcrumb-link"><a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>Dashboard</a></li>
-              <li class="breadcrumb-link active">Product Single</li>
+              <li class="breadcrumb-link"><a href="/courses"><i class="fas fa-home mr-2"></i>退出</a></li>
+              <li class="breadcrumb-link active">课程详情</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <!-- Products view Start -->
     <div class="int-product-single">
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12">
@@ -55,7 +55,7 @@
             <!-- Swiper -->
             <div class="swiper-container gallery-top">
              
-                <div class="swiper-slide"><img src="{% static 'img/OS.jpg' %}" alt="product-img"></div>
+                <div class="swiper-slide"><img src="{% static 'img/course.png' %}" alt="product-img"></div>
 
             </div>
           </div>
@@ -70,11 +70,11 @@
         <div class="col-lg-8 col-md-8 col-sm-12">
           <div class="int-thumb-sidebar">
             <div class="int-price-detail">
-              <h1 id="course-name">{course name}</h1>
+              <h1 id="course-name">{课程名称}</h1>
               <ul>
                 <li id="teacher_name">{teacher}</li>
                 <li></li>
-                <li id="course-academy">{academy}</li>
+                <li id="academy">{academy}</li>
                 <li id="student-number">{student number}</li>
                 <li>
                   <i class="fa fa-star active" aria-hidden="true"></i>
@@ -88,7 +88,7 @@
             <div class="int-thumb-description">
               <ul>
                 <li id="number"><span>{Class number}</span>Length(17 inch.),Height(32 inches)</li>
-                <li id="capacity"><span>{Capacity}</span>Wooden</li>
+                <li id="capacity"><span>{课程容量}</span>Wooden</li>
                 <li id="available"><span>{available}</span>Yellow,Style:Modern</li>
                 <li id="address"><span>{address}</span>6 month warranty on manufacturing defects</li>
               </ul>
@@ -96,7 +96,7 @@
             <div class="int-quantity-style2">
               <div class="int-textbox-subscribe4">
                 <p id="total-hours">{Total hours}</p>
-                <span>Generally delivered in 8 - 12 days</span>
+                <span>按计划在本学期结课</span>
               </div>
             </div>
             <div class="int-quantity-stock">
@@ -105,6 +105,8 @@
                
 
               <li><a href="#" id="joinClassBtn" class="ad-btn">Join the class</a></li>
+              <li><a href="#" id="teacher-next" class="ad-btn" style="display: none;">作业管理</a></li>
+              <li><a href="#" id="student-next" class="ad-btn" style="display: none;">See homework</a></li>
 
                 
               </ul>
@@ -119,8 +121,8 @@
         <div class="col-lg-12 col-md-12">
           <div class="product-detail-tab">
             <ul class="nav nav-tabs">
-              <li><a data-toggle="tab" class="active" href="#description">Description</a></li>
-              <li><a data-toggle="tab" href="#review">Review</a></li>
+              <li><a data-toggle="tab" class="active" href="#description">课程描述</a></li>
+              
             
             </ul>
             <div class="tab-content">
@@ -131,32 +133,6 @@
                 </div>
               </div>
               <div id="review" class="tab-pane fade">
-                <div class="fd-review-wrapper">
-                  <h3 class="review-heading">There are no reviews yet.</h3>
-                  <h5>Be the first to review "this product"</h5>
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-block">
-                            <input type="text" class="form_field" placeholder="First Name">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-block">
-                            <input type="text" class="form_field" placeholder="Email">
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-block">
-                            <textarea placeholder="Your Review" class="form_field"></textarea>
-                          </div>
-                        </div>
-                        <div class="col-md-12"><a href="javascript:;" class="ad-btn">Send</a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
              
             </div>
@@ -164,9 +140,7 @@
         </div>
       </div>
     </div>
-    <div class="ad-footer-btm">
-      <p>Copyright 2021 © SplashDash All Rights By <a href="www.jq22.com/index.html">jq22</a>.</p>
-    </div>
+ </div>
   </div>
 </div>
 <!-- Slide Setting Box -->
@@ -283,6 +257,7 @@
       </div>
     </div>
   </div>
+  
 </div>
 <!-- Color Setting -->
 <div id="style-switcher">
@@ -342,18 +317,18 @@ $(document).ready(function() {
             contentType: 'application/json',
             success: function(course) {
                 $('#id').html(`<strong>ID:</strong> ${course.id}`);
-                $('#number').html(`<strong>Number:</strong> ${course.number}`);
-                $('#description').html(`<strong>Description:</strong> ${course.description}`);
-                $('#teacher_name').html(`<strong>Teacher:</strong> ${course.teacher_name}`);
+                $('#number').html(`<strong>课程号:</strong> ${course.number}`);
+                $('#description').html(`<strong>课程描述:</strong> ${course.description}`);
+                $('#teacher_name').html(`<strong>教师:</strong> ${course.teacher_name}`);
                 $('#academy').html(`<strong>Academy:</strong> ${course.academy}`);
-                $('#address').html(`<strong>Address:</strong> ${course.address}`);
-                $('#capacity').html(`<strong>Capacity:</strong> ${course.capacity}`);
-                $('#available').html(`<strong>Available Seats:</strong> ${course.capacity - course.student.length}`);
-                $('#course-name').html(`<strong>Course Name:</strong> ${course.name}`);
+                $('#address').html(`<strong>地点:</strong> ${course.address}`);
+                $('#capacity').html(`<strong>课程容量:</strong> ${course.capacity}`);
+                $('#available').html(`<strong>课程余量:</strong> ${course.capacity - course.student.length}`);
+                $('#course-name').html(`<strong>课程名称:</strong> ${course.name}`);
                 $('#start_time').html(`<strong>Start Time:</strong> ${course.start_time}`);
-                $('#total-hours').html(`<strong>Total Hours:</strong> ${course.total_class_hours} hours`);
-                $('#course-time').html(`<strong>Course Time:</strong> ${course.day_of_week} ${course.start_time} - ${course.end_time}`);
-                $('#student-number').html(`<strong>Student Number:</strong> ${course.student.length}`);
+                $('#total-hours').html(`<strong>总学时:</strong> ${course.total_class_hours} hours`);
+                $('#course-time').html(`<strong>上课时间:</strong> ${course.day_of_week} ${course.start_time} - ${course.end_time}`);
+                $('#student-number').html(`<strong>选课人数:</strong> ${course.student.length}`);
                 
                 var studentsList = '';
                 course.student.forEach(function(studentId) {
@@ -372,53 +347,205 @@ $(document).ready(function() {
 });
 </script>
 <script>
-document.getElementById('joinClassBtn').addEventListener('click', function(event) {
-    event.preventDefault();
+	
+</script>
+<script>
+	document.getElementById('joinClassBtn').addEventListener('click', function(event) {
+	    event.preventDefault();
+	
+	    // 从 localStorage 获取学生ID
+	    const localStorageUserId = localStorage.getItem('user_id');
+	    if (!localStorageUserId) {
+	        alert('No user ID found in localStorage. Please log in first.');
+	        return;
+	    }
+	
+	    // 获取课程ID，例如从URL或其他地方
+	    const courseId = getCourseNumberFromPath(); // 假设这个函数已经定义好获取课程ID
+	
+	    if (!courseId) {
+	        alert('No course ID found.');
+	        return;
+	    }
+	
+	    // 发送 GET 请求获取学生列表
+	    fetch('/api/students', {
+	        method: 'GET',
+	        headers: {
+	            'Content-Type': 'application/json',
+	            'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+	        }
+	    })
+	    .then(response => {
+	        if (response.ok) {
+	            return response.json();
+	        } else {
+	            throw new Error('Failed to fetch students list.');
+	        }
+	    })
+	    .then(studentsList => {
+	        const student = studentsList.find(student => student.user === parseInt(localStorageUserId));
+	        if (!student) {
+	            alert('Student not found. Please ensure you are logged in with a student account.');
+	            return;
+	        }
+	
+	        const data = {
+	            student: student.id
+	        };
+	
+	        return fetch(`/api/courses/${courseId}/add_student`, {
+	            method: 'POST',
+	            headers: {
+	                'Content-Type': 'application/json',
+	                'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+	            },
+	            body: JSON.stringify(data)
+	        });
+	    })
+	    .then(response => {
+	        if (response.ok) {
+	            return response.json();
+	        } else {
+	            throw new Error('Failed to add student to the course.');
+	        }
+	    })
+	    .then(data => {
+	        if (data.status === 'student added') {
+	            alert('Student successfully added to the course.');
+	        } else {
+	            alert('Failed to add student: ' + data.status);
+	        }
+	    })
+	    .catch(error => {
+	        console.error('Error:', error);
+	        alert('An error occurred: ' + error.message);
+	    });
+	
+	    function getCourseNumberFromPath() {
+	        const path = window.location.pathname;
+	        const regex = /\/course\/(\d+)\//;
+	        const match = path.match(regex);
+	        if (match) {
+	            return match[1];
+	        } else {
+	            return null;
+	        }
+	    }
+	
+	    function getCookie(name) {
+	        let cookieValue = null;
+	        if (document.cookie && document.cookie !== '') {
+	            const cookies = document.cookie.split(';');
+	            for (let i = 0; i < cookies.length; i++) {
+	                const cookie = cookies[i].trim();
+	                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+	                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                    break;
+	                }
+	            }
+	        }
+	        return cookieValue;
+	    }
+	});
 
-    // 从 localStorage 获取学生ID
-    const studentId = localStorage.getItem('user_id');
-    if (!studentId) {
-        alert('No student ID found. Please log in first.');
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const userId = localStorage.getItem('user_id');
+    if (!userId) {
+        alert('No user ID found in localStorage. Please log in first.');
         return;
     }
 
-    // 假设您有办法获取课程ID，例如从URL或其他地方
-    const courseId = getCourseNumberFromPath(); // 假设这个函数已经定义好获取课程ID
-
+    const courseId = getCourseNumberFromPath();
     if (!courseId) {
         alert('No course ID found.');
         return;
     }
 
-    const data = {
-        student: studentId
-    };
-
-    fetch(`/api/courses/${courseId}/add_student`, {
-        method: 'POST',
+    // 检查用户是否是学生
+    fetch('/api/students', {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
-        },
-        body: JSON.stringify(data)
+        }
     })
     .then(response => {
         if (response.ok) {
             return response.json();
         } else {
-            throw new Error('Failed to add student to the course.');
+            throw new Error('Failed to fetch students list.');
         }
     })
-    .then(data => {
-        if (data.status === 'student added') {
-            alert('Student successfully added to the course.');
+    .then(studentsList => {
+        const student = studentsList.find(student => student.user === parseInt(userId));
+        if (student) {
+            // 如果用户是学生，检查是否已经加入课程
+            fetch(`/api/courses/${courseId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch course details.');
+                }
+            })
+            .then(course => {
+                const studentJoined = course.student.includes(student.id);
+                if (studentJoined) {
+                    const joinClassItem = document.getElementById('joinClassBtn');
+                    if (joinClassItem) {
+                        joinClassItem.style.display = 'none';
+                    }
+                    //showMessage('You have already joined this course.', 'success');
+                    students_target_info(student, course);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                //showMessage('An error occurred: ' + error.message, 'error');
+            });
         } else {
-            alert('Failed to add student: ' + data.status);
+            // 如果用户不是学生，检查是否是老师
+            fetch('/api/teachers', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch teachers list.');
+                }
+            })
+            .then(teachersList => {
+                const teacher = teachersList.find(teacher => teacher.user === parseInt(userId));
+                if (teacher) {
+                    // 如果用户是老师，调用 teachers_target_info 函数
+                    teachers_target_info(teacher, courseId);
+                } else {
+                    alert('User is neither a student nor a teacher.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                //showMessage('An error occurred: ' + error.message, 'error');
+            });
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred: ' + error.message);
+        showMessage('An error occurred: ' + error.message, 'error');
     });
 
     function getCourseNumberFromPath() {
@@ -446,8 +573,44 @@ document.getElementById('joinClassBtn').addEventListener('click', function(event
         }
         return cookieValue;
     }
-});
-</script>
 
+    function showMessage(message, type) {
+        const messageDiv = document.getElementById('responseMessage');
+        messageDiv.textContent = message;
+        messageDiv.className = type; // 你可以通过CSS设置不同类型消息的样式
+    }
+
+ function students_target_info(student, course) {
+        // 显示学生特定的按钮
+		const joininfo = document.getElementById('joinClassBtn');
+        const studentNextItem = document.getElementById('student-next');
+        if (studentNextItem) {
+			joininfo.style.display = 'none';
+            studentNextItem.style.display = 'block';
+            document.getElementById('student-next').addEventListener('click', function(event) {
+                event.preventDefault();
+                // 跳转到学生特定的新界面
+                window.location.href = `/course/${course.id}/student/${student.id}`;
+            });
+        }
+    }
+
+    function teachers_target_info(teacher, courseId) {
+        // 显示老师特定的按钮
+		const joininfo = document.getElementById('joinClassBtn');
+        const teacherNextItem = document.getElementById('teacher-next');
+        if (teacherNextItem) {
+			joininfo.style.display = 'none';
+            teacherNextItem.style.display = 'block';
+            document.getElementById('teacher-next').addEventListener('click', function(event) {
+                event.preventDefault();
+                // 跳转到老师特定的新界面
+                window.location.href = `/course/${courseId}/teacher/${teacher.id}/`;
+            });
+        }
+    }
+});
+
+</script>
 </body>
 </html>

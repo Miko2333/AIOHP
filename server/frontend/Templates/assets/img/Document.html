@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:8000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		
+
+		<link rel="shortcut icon" href="http://127.0.0.1:8000/static/img/favicon.png">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="./Document_files/bootstrap.min.css">
+		<link rel="stylesheet" href="./Document_files/bootstrap-select.min.css">
+		<link href="./Document_files/icons.css" rel="stylesheet">
+		<link href="./Document_files/animate.css" rel="stylesheet">
+		<link href="./Document_files/bootsnav.css" rel="stylesheet">
+		<link rel="stylesheet" href="./Document_files/nice-select.css">
+		<link href="./Document_files/aos.css" rel="stylesheet">
+		<link href="./Document_files/style.css" rel="stylesheet">
+		<link href="./Document_files/responsive.css" rel="stylesheet">
+		<link rel="stylesheet" href="./Document_files/all.min.css">
+		<!-- Google Fonts -->
+		<link href="./Document_files/css" rel="stylesheet">
+		<link href="./Document_files/css(1)" rel="stylesheet">
+	<style type="text/css">.cyxy-trs-target.colored {
+  background-color: rgba(0, 185, 119, 0.05);
+}
+
+.cyxy-target-popup {
+  padding: 1.3rem 12px;
+  position: absolute;
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: row;
+  overflow: scroll;
+  vertical-align: middle;
+  z-index: 199099;
+  top: 1px;
+  left: 1px;
+  background: #fff;
+  opacity: 0.98;
+  /*margin: 0px 5%;*/
+  height: auto;
+  width: auto;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  /*height: 7rem;*/
+}
+
+@media (max-width: 468px) {
+  .cyxy-target-popup {
+    /*width: 90%;*/
+    /*margin: 0px 5%;*/
+    left: 10%;
+    /*right: 5%;*/
+    /*width: 30rem;*/
+    /*height: 14.58rem;*/
+  }
+}
+
+#cyxy-popup-left-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+#cyxy-popup-right-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+#cyxy-popup-userinfo {
+  display: inline;
+}
+
+.cyxy-target-count {
+  display: inline;
+  vertical-align: middle;
+  font-size: 10px;
+}
+
+#cyxy-popup-avatar {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  display: inline;
+  height: 32px;
+  vertical-align: middle;
+  border-radius: 16px;
+}
+
+#cyxy-popup-name-time {
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  /*position: relative;*/
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 6px;
+}
+
+#cyxy-popup-name {
+  /*vertical-align: middle;*/
+  /*display: flex;*/
+  font-size: 14px;
+  color: #333;
+  height: 18px;
+  overflow: hidden;
+  max-width: 84px;
+}
+
+#cyxy-popup-time {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  /*display: flex;*/
+  font-size: 12px;
+  margin-top: 4px;
+  color: #999;
+}
+
+.cyxy-footer {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  padding: 0px 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.9;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  z-index: 201712;
+  text-align: center;
+}
+
+.cyxy-footer-p {
+  padding: 12px 0px;
+  margin: 0px;
+  font-size: 12px;
+  color: #333;
+  background: #fff;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 200;
+}
+
+#cyxy-popup-favour {
+  text-align: center;
+  display: inline;
+  margin-right: 20px;
+  margin-left: 46px;
+  cursor: pointer;
+}
+
+#cyxy-popup-favour.commit {
+  /*padding: 2px 6px;*/
+  /*border: 1px solid #00B977;*/
+  /*border-radius: 4px;*/
+}
+
+#cyxy-popup-oppose {
+  text-align: center;
+  display: inline;
+  cursor: pointer;
+}
+
+#cyxy-popup-favour-img {
+  display: inline;
+  height: 20px;
+  /*width: 22px;*/
+  vertical-align: middle;
+}
+
+#cyxy-popup-favour-img.commit {
+  /*height: 22px;*/
+  /*vertical-align: middle;*/
+}
+
+#cyxy-popup-oppose-img {
+  display: inline;
+  height: 18px;
+  vertical-align: middle;
+}
+
+#cyxy-popup-favour-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: #999999;
+}
+
+#cyxy-popup-oppose-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: #999;
+}
+
+.caption-window.ytp-caption-window-bottom {
+  width: 800px;
+  /* height: 100px; */
+  /* margin-left: -400px; */
+}
+
+@media (max-width: 320px) {
+  #cyxy-popup-favour {
+    margin-right: 0.8rem;
+    margin-left: 1.5rem;
+  }
+
+  #cyxy-popup-left-slide {
+    margin-right: 0.8rem;
+  }
+
+  #cyxy-popup-right-slide {
+    margin-left: 1rem;
+  }
+}
+
+.login-hint-a {
+  border-bottom: none;
+  display: block;
+  color: #999;
+  font-size: 10px;
+}
+
+.login-hint-a:visited {
+  color: #999;
+}
+
+.layui-m-layer {
+  color: #333;
+  position: relative;
+  z-index: 2147483647;
+}
+
+.layui-m-layer * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.layui-m-layermain,
+.layui-m-layershade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.layui-m-layershade {
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+
+.layui-m-layermain {
+  display: table;
+  font-family: Helvetica, arial, sans-serif;
+  pointer-events: none;
+}
+
+.layui-m-layermain .layui-m-layersection {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.layui-m-layerchild {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  background-color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+}
+
+@-webkit-keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.layui-m-anim-scale {
+  animation-name: layui-m-anim-scale;
+  -webkit-animation-name: layui-m-anim-scale;
+}
+
+@-webkit-keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.layui-m-anim-up {
+  -webkit-animation-name: layui-m-anim-up;
+  animation-name: layui-m-anim-up;
+}
+
+.layui-m-layer0 .layui-m-layerchild {
+  width: 90%;
+  max-width: 640px;
+}
+
+.layui-m-layer1 .layui-m-layerchild {
+  border: none;
+  border-radius: 0;
+}
+
+.layui-m-layer2 .layui-m-layerchild {
+  width: auto;
+  max-width: 260px;
+  min-width: 40px;
+  border: none;
+  background: 0 0;
+  box-shadow: none;
+  color: #fff;
+}
+
+.layui-m-layerchild h3 {
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+
+.layui-m-layerbtn span,
+.layui-m-layerchild h3 {
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.layui-m-layercont {
+  padding: 50px 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.layui-m-layer1 .layui-m-layercont {
+  padding: 0;
+  text-align: left;
+}
+
+.layui-m-layer2 .layui-m-layercont {
+  text-align: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.layui-m-layer2 .layui-m-layercont i {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.layui-m-layerbtn,
+.layui-m-layerbtn span {
+  position: relative;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer2 .layui-m-layercont p {
+  margin-top: 20px;
+}
+
+@-webkit-keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.layui-m-layer2 .layui-m-layercont i:first-child {
+  margin-left: 0;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.layui-m-layer2 .layui-m-layercont i.layui-m-layerload {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.layui-m-layer2 .layui-m-layercont > div {
+  line-height: 22px;
+  padding-top: 7px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.layui-m-layerbtn {
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 0;
+  border-top: 1px solid #d0d0d0;
+  background-color: #f2f2f2;
+}
+
+.layui-m-layerbtn span {
+  display: block;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.layui-m-layerbtn span[yes] {
+  color: #40affe;
+}
+
+.layui-m-layerbtn span[no] {
+  border-right: 1px solid #d0d0d0;
+  border-radius: 0 0 0 5px;
+}
+
+.layui-m-layerbtn span:active {
+  background-color: #f6f6f6;
+}
+
+.layui-m-layerend {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  font-weight: 400;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  font-size: 30px;
+}
+
+.layui-m-layerend::after,
+.layui-m-layerend::before {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  content: "";
+  width: 18px;
+  height: 1px;
+  background-color: #999;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border-radius: 3px;
+}
+
+.layui-m-layerend::after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.layui-m-layer .layui-m-layer-footer {
+  position: fixed;
+  width: 95%;
+  max-width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  background: 0 0;
+}
+
+.layui-m-layer-footer .layui-m-layercont {
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn {
+  display: block;
+  height: auto;
+  background: 0 0;
+  border-top: none;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[no] {
+  color: #fd482c;
+  border-top: 1px solid #c2c2c2;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[yes] {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.layui-m-layer .layui-m-layer-msg {
+  width: auto;
+  max-width: 90%;
+  margin: 0 auto;
+  bottom: -150px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.layui-m-layer-msg .layui-m-layercont {
+  padding: 10px 20px;
+}
+
+.collection-success {
+  /*opacity: 0.6;*/
+  /*background: #EAEAEA;*/
+  color: #ffffff;
+}
+.collection-success:hover {
+  /*opacity: 0.45;*/
+  /*background: #000000;*/
+  color: #ffffff;
+}
+.layui-m-layercont .cyxy-trs-target {
+  display: none;
+}
+.collection-icon {
+  width: 12px;
+  height: 13px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABLCAYAAAGkfvF/AAAABGdBTUEAALGPC/xhBQAABsRJREFUeAHtnE2IHEUUx3cmG434SdRFMaKYgB4UJYJEiAfxIp4EFTwIsh48hhwFMV4UcxBvHlQIQhAxF7/w5Ce4KysKoiisuIcF8QuNZgOiZje7/l5tv0pNdXVVT/dM70zvNLzUx3v13v/9q7qrptNJZ4prfX19Q8rQ1e12O1EDHdTVSqyMGlkYtlLgSvTTrm5jY+MBty11+uKZ2Si24rtw2lHgateRSsybIRNgh8QoJOhWjTcqi+q2qCyFKWpElM+T4TDah8xaxmnk2BYv9B+TPwqBKzXWk58Zg090uJKYdGBHXWqHXwrjHdw+iTyD57d9gxLtVcY9ZOwkGldhgiWcGZPopBQ5yYL/5uorOTKrcGrqhszhy+LQEEme3yM3SQdpSq6bUyEdJa/c3OKwNEqdTUGYc1QGgOtA7Ss5yjhSH5slfKwgp3t7+28ZUnH0B3J5v8NlgmSiZNx0lu8SHXP9OsJ+2Y5R4mxHxUrpqU7531pHIToqI/KdVXKkC9J1VsmREO87y90ibpTUTKlexuQcsTDvxeAiNUqUstEcZcx90W005gQHM4KE62ljVyUVBptbi/I9G6yKowzJknUilSqOQLLQ46Sqo5wTOiqvI9/ZwBxNswZWq/AkiBh7GrnU1OUPyDuD7JR6k5cLxMYFyEq2LGpvJNZpjUoXQJdk43+u4WdgQwe2iAaFqDFAzMQJJH+j+5nI+snWUO2zqO/bbWucLNYPrs6tN8aQbFxc5k6GqX0ZsHddMKauyDEaKkNuYGKZrceJ/ZTq7Q8V0NsztiqlZLBk9THS95FQxieuXfi/Xm3AcH9up1alU/7KoN1Oe2hV4rxltsVsPhubMsmI4GYdOdP2mMnU6WgEEEAu1JgZEa+4lJeZMte+Vj0DYHywXr5A7vAdNgZIwEhwQPyOzPhAtN0YID1Aa+CisrEHYxEAv3/kANmXM4KUuZWj8nc+6iG15VXbI8T8z/Vv33hwOx5CcYRyGE9kN6apA2SNys2U5se9GujbAlncHwHmLlUMuwTIPHLQjyNTdg/yga9ooh2686ZdMCCW48B6E2CIMReKY59DgJGfMmdDRk322dt+FMBI4hZQkyzEYk0AxdgR3fZkiEfLbkTe+96aYsgeYZOGNQwAckpPidRvjLpSw6hRTSUgZjWOlFxXFbpUw0KDASkA8aLGykCF30Gq0YDiRt0A6k2Nl4HKv5NSg6inASoB9ZnGlDLnWpU5xRA7ALWocXOgVDHE+EHXgPpFY1O3Jwy72wdH0YnxExSPFulr9J9iQ5/Bv7zFk3PZmjlxKGWhwxJGO8SwRtC+hgJoIbV1WCr78lzD2L6OCTEkfmHoGooDNWLEhh7H/wViADvy18vnNbJ1hBABJLioU1MW8lW7DzCLiN0+YOYcDr31akcp6QAg8xpTb6ieoars6RxSAzCjs3UAxt9cLw7m3QRDgPGPH1cHwUhnQ4DcA5r5mmKrAekR9rZCIKpogiGNVaY8d/+XsW7AZgIoRfLoMsSzYkcKfRN6e/yQYGxy71DkD97DQTJHvOd91yP3Sk/+mu9DZCfyqY92mG3izYf8u6+F92NwjLWUfiEQ8jRmfRCygNyZgi0vYeWTiyXKK1LGLdMvlsoHYr7U7VVL+p5F7Ooq5aitRkqKlhBTjtm2EuLlNXIbq4dvy5sTghJTMCFoQlCCgYR6soK2E0HswK/pbiwl119I+jVChKS2raCed8SQcxnyFfIjcl2Eh0JVqwjip8Ne5KifLeTsQZaRb5D+PjN0l2S2LMf+oAgJ8iv8uJ+bttHJ1z+7fCKDbR2kJQPHniBNlFzOR97X3PwS3etI/C4KDGoNQQ5R5lnk56ptSMq9CNKx9k25Y9w6gjRZiLgWWdZc/RKdfAnYewWMWkuQZg4RtyB/+rlLm2sNeVBte95xSie7QPDLdx3glzh7CXnc7x/3NjzI94AHahEEMfJJ/z/jTkYRfkj6O/4ELxqZ9ePgX+RhRD7zbdVFTmdI6O5t9ZDWGWTVyzPoZMEz6Cy6zX+sLwN8I5StfUiTmzlR+zlrG/1hJdGWqtSyjQSRU+oc9IIlxK8oMVq2iSBySZ2k38Am/hxWYrRsA0HkkPot9gk25gsuf8Hk2kqMluNOEPif01z8Et23SF+/5pOfT+YYHeEOkpe/AN3rQ2TL/om+g5TLvi7Vjt9/qdGjp9/8L4cyXBCyguxH9lQhx7gJLMPWbvNV5rNtK6gKB9ExE4Ki9IzgP/5J4G1cPVlBCconBCUIkn9zMPk+KEKSHMm35RdmnIteRWYj3BiVfDQph6krkduRr1MDWqSPf2afJfo/soLh9AvFdjIAAAAASUVORK5CYII=")
+    no-repeat;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+}
+.collection-success > a {
+  margin-left: 12px;
+  vertical-align: middle;
+}
+.cy_free_box {
+  position: relative;
+}
+.cy_free_box img {
+  width: 100%;
+  cursor: pointer;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+.layui-m-layer-cy_free_content {
+  background: inherit !important;
+}
+</style><style type="text/css">.cyxy-trs-target.colored {
+  background-color: rgba(0, 185, 119, 0.05);
+}
+
+.cyxy-target-popup {
+  padding: 1.3rem 12px;
+  position: absolute;
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: row;
+  overflow: scroll;
+  vertical-align: middle;
+  z-index: 199099;
+  top: 1px;
+  left: 1px;
+  background: #fff;
+  opacity: 0.98;
+  /*margin: 0px 5%;*/
+  height: auto;
+  width: auto;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  /*height: 7rem;*/
+}
+
+@media (max-width: 468px) {
+  .cyxy-target-popup {
+    /*width: 90%;*/
+    /*margin: 0px 5%;*/
+    left: 10%;
+    /*right: 5%;*/
+    /*width: 30rem;*/
+    /*height: 14.58rem;*/
+  }
+}
+
+#cyxy-popup-left-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+#cyxy-popup-right-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+#cyxy-popup-userinfo {
+  display: inline;
+}
+
+.cyxy-target-count {
+  display: inline;
+  vertical-align: middle;
+  font-size: 10px;
+}
+
+#cyxy-popup-avatar {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  display: inline;
+  height: 32px;
+  vertical-align: middle;
+  border-radius: 16px;
+}
+
+#cyxy-popup-name-time {
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  /*position: relative;*/
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 6px;
+}
+
+#cyxy-popup-name {
+  /*vertical-align: middle;*/
+  /*display: flex;*/
+  font-size: 14px;
+  color: #333;
+  height: 18px;
+  overflow: hidden;
+  max-width: 84px;
+}
+
+#cyxy-popup-time {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  /*display: flex;*/
+  font-size: 12px;
+  margin-top: 4px;
+  color: #999;
+}
+
+.cyxy-footer {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  padding: 0px 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.9;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  z-index: 201712;
+  text-align: center;
+}
+
+.cyxy-footer-p {
+  padding: 12px 0px;
+  margin: 0px;
+  font-size: 12px;
+  color: #333;
+  background: #fff;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 200;
+}
+
+#cyxy-popup-favour {
+  text-align: center;
+  display: inline;
+  margin-right: 20px;
+  margin-left: 46px;
+  cursor: pointer;
+}
+
+#cyxy-popup-favour.commit {
+  /*padding: 2px 6px;*/
+  /*border: 1px solid #00B977;*/
+  /*border-radius: 4px;*/
+}
+
+#cyxy-popup-oppose {
+  text-align: center;
+  display: inline;
+  cursor: pointer;
+}
+
+#cyxy-popup-favour-img {
+  display: inline;
+  height: 20px;
+  /*width: 22px;*/
+  vertical-align: middle;
+}
+
+#cyxy-popup-favour-img.commit {
+  /*height: 22px;*/
+  /*vertical-align: middle;*/
+}
+
+#cyxy-popup-oppose-img {
+  display: inline;
+  height: 18px;
+  vertical-align: middle;
+}
+
+#cyxy-popup-favour-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: #999999;
+}
+
+#cyxy-popup-oppose-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: #999;
+}
+
+.caption-window.ytp-caption-window-bottom {
+  width: 800px;
+  /* height: 100px; */
+  /* margin-left: -400px; */
+}
+
+@media (max-width: 320px) {
+  #cyxy-popup-favour {
+    margin-right: 0.8rem;
+    margin-left: 1.5rem;
+  }
+
+  #cyxy-popup-left-slide {
+    margin-right: 0.8rem;
+  }
+
+  #cyxy-popup-right-slide {
+    margin-left: 1rem;
+  }
+}
+
+.login-hint-a {
+  border-bottom: none;
+  display: block;
+  color: #999;
+  font-size: 10px;
+}
+
+.login-hint-a:visited {
+  color: #999;
+}
+
+.layui-m-layer {
+  color: #333;
+  position: relative;
+  z-index: 2147483647;
+}
+
+.layui-m-layer * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.layui-m-layermain,
+.layui-m-layershade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.layui-m-layershade {
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+
+.layui-m-layermain {
+  display: table;
+  font-family: Helvetica, arial, sans-serif;
+  pointer-events: none;
+}
+
+.layui-m-layermain .layui-m-layersection {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.layui-m-layerchild {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  background-color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+}
+
+@-webkit-keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.layui-m-anim-scale {
+  animation-name: layui-m-anim-scale;
+  -webkit-animation-name: layui-m-anim-scale;
+}
+
+@-webkit-keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.layui-m-anim-up {
+  -webkit-animation-name: layui-m-anim-up;
+  animation-name: layui-m-anim-up;
+}
+
+.layui-m-layer0 .layui-m-layerchild {
+  width: 90%;
+  max-width: 640px;
+}
+
+.layui-m-layer1 .layui-m-layerchild {
+  border: none;
+  border-radius: 0;
+}
+
+.layui-m-layer2 .layui-m-layerchild {
+  width: auto;
+  max-width: 260px;
+  min-width: 40px;
+  border: none;
+  background: 0 0;
+  box-shadow: none;
+  color: #fff;
+}
+
+.layui-m-layerchild h3 {
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+
+.layui-m-layerbtn span,
+.layui-m-layerchild h3 {
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.layui-m-layercont {
+  padding: 50px 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.layui-m-layer1 .layui-m-layercont {
+  padding: 0;
+  text-align: left;
+}
+
+.layui-m-layer2 .layui-m-layercont {
+  text-align: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.layui-m-layer2 .layui-m-layercont i {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.layui-m-layerbtn,
+.layui-m-layerbtn span {
+  position: relative;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer2 .layui-m-layercont p {
+  margin-top: 20px;
+}
+
+@-webkit-keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.layui-m-layer2 .layui-m-layercont i:first-child {
+  margin-left: 0;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.layui-m-layer2 .layui-m-layercont i.layui-m-layerload {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.layui-m-layer2 .layui-m-layercont > div {
+  line-height: 22px;
+  padding-top: 7px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.layui-m-layerbtn {
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 0;
+  border-top: 1px solid #d0d0d0;
+  background-color: #f2f2f2;
+}
+
+.layui-m-layerbtn span {
+  display: block;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.layui-m-layerbtn span[yes] {
+  color: #40affe;
+}
+
+.layui-m-layerbtn span[no] {
+  border-right: 1px solid #d0d0d0;
+  border-radius: 0 0 0 5px;
+}
+
+.layui-m-layerbtn span:active {
+  background-color: #f6f6f6;
+}
+
+.layui-m-layerend {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  font-weight: 400;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  font-size: 30px;
+}
+
+.layui-m-layerend::after,
+.layui-m-layerend::before {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  content: "";
+  width: 18px;
+  height: 1px;
+  background-color: #999;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border-radius: 3px;
+}
+
+.layui-m-layerend::after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.layui-m-layer .layui-m-layer-footer {
+  position: fixed;
+  width: 95%;
+  max-width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  background: 0 0;
+}
+
+.layui-m-layer-footer .layui-m-layercont {
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn {
+  display: block;
+  height: auto;
+  background: 0 0;
+  border-top: none;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[no] {
+  color: #fd482c;
+  border-top: 1px solid #c2c2c2;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[yes] {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.layui-m-layer .layui-m-layer-msg {
+  width: auto;
+  max-width: 90%;
+  margin: 0 auto;
+  bottom: -150px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.layui-m-layer-msg .layui-m-layercont {
+  padding: 10px 20px;
+}
+
+.collection-success {
+  /*opacity: 0.6;*/
+  /*background: #EAEAEA;*/
+  color: #ffffff;
+}
+.collection-success:hover {
+  /*opacity: 0.45;*/
+  /*background: #000000;*/
+  color: #ffffff;
+}
+.layui-m-layercont .cyxy-trs-target {
+  display: none;
+}
+.collection-icon {
+  width: 12px;
+  height: 13px;
+  background: url("data:image/png;base64,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")
+    no-repeat;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+}
+.collection-success > a {
+  margin-left: 12px;
+  vertical-align: middle;
+}
+.cy_free_box {
+  position: relative;
+}
+.cy_free_box img {
+  width: 100%;
+  cursor: pointer;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+.layui-m-layer-cy_free_content {
+  background: inherit !important;
+}
+</style></head>
+	<body class="utf_skin_area" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0"><div class="wrapper">
+		<div class="page_preloader" style="display: none;"></div>
+		<meta name="csrf-token" content="L9zC5SrOgg6IvvBgvbJgXwN52Zwcspiz9tboXBw8KSH31l8gRFul3GSoJSyqy1Aw">
+		<!-- ======================= Start Navigation ===================== -->
+		<nav class="navbar navbar-default navbar-mobile navbar-fixed white no-background bootsnav on">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
+					<a class="navbar-brand" href="http://127.0.0.1:8000/index.html"> <img src="./Document_files/logo1.svg" class="logo logo-display" alt=""> <img src="./Document_files/logo1.svg" class="logo logo-scrolled" alt=""> </a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
+						<li class="dropdown active"> <a href="http://127.0.0.1:8000/index.html">Home</a> </li>
+						<li class="dropdown"> <a href="http://127.0.0.1:8000/#" class="dropdown-toggle" data-toggle="dropdown">Employer</a>
+							<ul class="dropdown-menu animated fadeOutUp">
+								<li><a href="http://127.0.0.1:8000/employer.html">Employer</a></li>
+								<li><a href="http://127.0.0.1:8000/employer-detail.html">Employer Detail</a></li>
+								<li><a href="http://127.0.0.1:8000/create-company.html">Create Company</a></li>
+								<li><a href="http://127.0.0.1:8000/manage-resume.html">Manage Resume</a></li>
+								<li><a href="http://127.0.0.1:8000/add-job.html">Add Job</a></li>
+								<li><a href="http://127.0.0.1:8000/resume-detail.html">Resume Detail</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"> <a href="http://127.0.0.1:8000/#" class="dropdown-toggle" data-toggle="dropdown">Candidate</a>
+							<ul class="dropdown-menu animated fadeOutUp">
+								<li><a href="http://127.0.0.1:8000/candidate.html">Candidate</a></li>
+								<li><a href="http://127.0.0.1:8000/browse-job.html">Browse Jobs</a></li>
+								<li><a href="http://127.0.0.1:8000/manage-job.html">Manage Jobs</a></li>
+								<li><a href="http://127.0.0.1:8000/browse-category.html">Browse Categories</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"> <a href="http://127.0.0.1:8000/#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+							<ul class="dropdown-menu animated fadeOutUp">
+								<li><a href="http://127.0.0.1:8000/profile-settings.html">Profile Settings</a></li>
+								<li><a href="http://127.0.0.1:8000/job-detail.html">Job Detail</a></li>
+								<li><a href="http://127.0.0.1:8000/job-layout-one.html">Job Layout One</a></li>
+								<li><a href="http://127.0.0.1:8000/404.html">404</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"> <a href="http://127.0.0.1:8000/contact.html">Contact</a> </li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="login" class="br-right" style="cursor: pointer; display: none;"><a class="btn-signup red-btn" data-toggle="modal" data-target="#signin"><i class="login-icon ti-user"></i>Login</a>
+						</li>
+						<li id="exit" class="br-right" style="cursor: pointer;"><a class="btn-signup red-btn"><i class="login-icon ti-user"></i>EXIT</a></li>
+						<li class="sign-up" id="register" style="cursor: pointer; display: none;"><a class="btn-signup red-btn" href="http://127.0.0.1:8000/signup"><span class="ti-briefcase"></span>Register</a></li>
+						<li class="status-container sign-up " id="user-info" style="margin: 25px;"><i class="login-icon ti-user"></i> 欢迎：BaiLei</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- ======================= End Navigation ===================== -->
+
+		<!-- ======================= Start Banner ===================== -->
+		<div class="utf_main_banner_area" style="background-image:url(/static/img/mainpage-1.jpg);" data-overlay="8">
+			<div class="container">
+				<div class="col-md-8 col-sm-10">
+					<div class="caption cl-white home_two_slid">
+						<h2>Search Between More Then <span class="theme-cl">50,000</span> Courses.</h2>
+						<p>Trending Course Keywords: <span class="trending_key"><a href="http://127.0.0.1:8000/#">Algorithm Design</a></span>
+							<span class="trending_key"><a href="http://127.0.0.1:8000/#">Database</a></span> <span class="trending_key"><a href="http://127.0.0.1:8000/#">Data Structure</a></span> <span class="trending_key"><a href="http://127.0.0.1:8000/#">
+									Software Developing</a></span>
+						</p>
+					</div>
+					<form>
+						<fieldset class="utf_home_form_one">
+							<div class="col-md-4 col-sm-4 padd-0">
+								<input type="text" class="form-control br-1" placeholder="Search Keywords...">
+							</div>
+							<div class="col-md-3 col-sm-3 padd-0">
+								<select class="wide form-control br-1" style="display: none;">
+									<option data-display="Degree">All Grades</option>
+									<option value="0">Undergraduate 1</option>
+									<option value="1">Undergraduate 2</option>
+									<option value="2">Undergraduate 3</option>
+									<option value="3">Undergraduate 4</option>
+									<option value="4">Master</option>
+									<option value="5">PHD</option>
+									<option value="6">Comeitition</option>
+									<option value="7">High school</option>
+								</select><div class="nice-select wide form-control br-1" tabindex="0"><span class="current">Degree</span><ul class="list"><li data-value="All Grades" data-display="Degree" class="option selected">All Grades</li><li data-value="0" class="option">Undergraduate 1</li><li data-value="1" class="option">Undergraduate 2</li><li data-value="2" class="option">Undergraduate 3</li><li data-value="3" class="option">Undergraduate 4</li><li data-value="4" class="option">Master</li><li data-value="5" class="option">PHD</li><li data-value="6" class="option">Comeitition</li><li data-value="7" class="option">High school</li></ul></div>
+							</div>
+							<div class="col-md-3 col-sm-3 padd-0">
+								<select class="wide form-control" style="display: none;">
+									<option data-display="Category">Show All</option>
+									<option value="1">Software Developer</option>
+									<option value="2">Java Developer</option>
+									<option value="3">Software Engineer</option>
+									<option value="4">Web Developer</option>
+									<option value="5">PHP Developer</option>
+									<option value="6">Python Developer</option>
+									<option value="7">Front end Developer</option>
+									<option value="8">Associate Developer</option>
+									<option value="9">Back end Developer</option>
+									<option value="10">XML Developer</option>
+									<option value="11">.NET Developer</option>
+									<option value="12" disabled="">Marketting Developer</option>
+								</select><div class="nice-select wide form-control" tabindex="0"><span class="current">Category</span><ul class="list"><li data-value="Show All" data-display="Category" class="option selected">Show All</li><li data-value="1" class="option">Software Developer</li><li data-value="2" class="option">Java Developer</li><li data-value="3" class="option">Software Engineer</li><li data-value="4" class="option">Web Developer</li><li data-value="5" class="option">PHP Developer</li><li data-value="6" class="option">Python Developer</li><li data-value="7" class="option">Front end Developer</li><li data-value="8" class="option">Associate Developer</li><li data-value="9" class="option">Back end Developer</li><li data-value="10" class="option">XML Developer</li><li data-value="11" class="option">.NET Developer</li><li data-value="12" class="option disabled">Marketting Developer</li></ul></div>
+							</div>
+							<div class="col-md-2 col-sm-2 padd-0 m-clear">
+								<button type="submit" class="btn theme-btn cl-white seub-btn">Search</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- ======================= End Banner ===================== -->
+
+		<!-- ================= Job start ========================= -->
+		<section class="padd-top-80 padd-bot-80">
+			<div class="container">
+				<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
+					<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="http://127.0.0.1:8000/#recent" role="tab"> Latest
+							Jobs</a> </li>
+					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="http://127.0.0.1:8000/#" role="tab"> Recent Jobs</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade in show active" id="recent" role="tabpanel">
+						<div class="row">
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox" checked="">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_1.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Product Redesign</a></h5>
+										<p class="text-muted">2708 Scenic Way, IL 62373</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_2.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">New Product Mockup</a></h5>
+										<p class="text-muted">2708 Scenic Way, IL 62373</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox" checked="">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_3.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Custom Php Developer</a></h5>
+										<p class="text-muted">3765 C Street, Worcester</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_4.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Wordpress Developer</a></h5>
+										<p class="text-muted">2719 Duff Avenue, Winooski</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type internship-type">Internship</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox" checked="">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_5.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Web Maintenence</a></h5>
+										<p class="text-muted">2708 Scenic Way, IL 62373</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_6.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Photoshop Designer</a></h5>
+										<p class="text-muted">2865 Emma Street, Lubbock</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_7.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">HTML5 &amp; CSS3 Coder</a></h5>
+										<p class="text-muted">2719 Burnside Avenue, Logan</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox" checked="">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_8.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">.Net Developer</a></h5>
+										<p class="text-muted">3815 Forest Drive, Alexandria</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Featured Job -->
+					<div class="tab-pane fade" id="featured" role="tabpanel">
+						<div class="row">
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_6.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">.Net Developer</a></h5>
+										<p class="text-muted">2708 Scenic Way, IL 62373</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_4.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Java Developer</a></h5>
+										<p class="text-muted">2708 Scenic Way, IL 62373</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_5.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Web Maintenence</a></h5>
+										<p class="text-muted">3765 C Street, Worcester</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_1.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Wordpress Developer</a></h5>
+										<p class="text-muted">2719 Duff Avenue, Winooski</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type internship-type">Internship</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_7.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Custom Php Developer</a></h5>
+										<p class="text-muted">2708 Scenic Way, IL 62373</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_8.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">New Product Mockup</a></h5>
+										<p class="text-muted">2865 Emma Street, Lubbock</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_3.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Product Redesign</a></h5>
+										<p class="text-muted">2719 Burnside Avenue, Logan</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+
+							<!-- Single Job -->
+							<div class="col-md-3 col-sm-6">
+								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
+									<div class="utf_job_like">
+										<label class="toggler toggler-danger">
+											<input type="checkbox">
+											<i class="fa fa-heart"></i>
+										</label>
+									</div>
+									<div class="u-content">
+										<div class="avatar box-80"> <a href="http://127.0.0.1:8000/employer-detail.html"> <img class="img-responsive" src="./Document_files/company_logo_6.png" alt=""> </a> </div>
+										<h5><a href="http://127.0.0.1:8000/employer-detail.html">Front End Designer</a></h5>
+										<p class="text-muted">3815 Forest Drive, Alexandria</p>
+									</div>
+									<div class="utf_apply_job_btn_item"> <a href="http://127.0.0.1:8000/job-detail.html" class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 mrg-top-20 text-center">
+					<a href="http://127.0.0.1:8000/job-layout-one.html" class="btn theme-btn btn-m">Browse All Jobs</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= Category start ========================= -->
+		<section class="utf_job_category_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="heading">
+							<h2>Job Categories</h2>
+							<p>Lorem Ipsum is simply dummy text printing and type setting industry Lorem Ipsum been
+								industry standard dummy text ever since when unknown printer took a galley.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="icon-bargraph" aria-hidden="true"></i>
+										</div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Web &amp; Software Dev</h4>
+											<p>122 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="icon-tools" aria-hidden="true"></i>
+										</div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Data Science &amp; Analitycs</h4>
+											<p>155 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="ti-briefcase" aria-hidden="true"></i>
+										</div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Accounting &amp; Consulting</h4>
+											<p>300 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="ti-ruler-pencil" aria-hidden="true"></i> </div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Writing &amp; Translations</h4>
+											<p>80 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="icon-briefcase" aria-hidden="true"></i> </div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Sales &amp; Marketing</h4>
+											<p>120 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="icon-wine" aria-hidden="true"></i>
+										</div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Graphics &amp; Design</h4>
+											<p>78 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="ti-world" aria-hidden="true"></i>
+										</div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Digital Marketing</h4>
+											<p>90 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="http://127.0.0.1:8000/browse-job.html" title="">
+								<div class="utf_category_box_area">
+									<div class="utf_category_desc">
+										<div class="utf_category_icon"> <i class="ti-desktop" aria-hidden="true"></i>
+										</div>
+										<div class="category-detail utf_category_desc_text">
+											<h4>Education &amp; Training</h4>
+											<p>210 Jobs</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-12 mrg-top-20 text-center">
+							<a href="http://127.0.0.1:8000/browse-category.html" class="btn theme-btn btn-m">View All Categories</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="newsletter theme-bg" style="background-image:url(/static/img/bg-new.png)">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="heading light">
+							<h2>Subscribe Our Newsletter!</h2>
+							<p>Lorem Ipsum is simply dummy text printing and type setting industry Lorem Ipsum been
+								industry standard dummy text ever since when unknown printer took a galley.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+						<div class="newsletter-box text-center">
+							<div class="input-group"> <span class="input-group-addon"><span class="ti-email theme-cl"></span></span>
+								<input type="text" class="form-control" placeholder="Enter your User name...">
+							</div>
+							<button type="button" class="btn theme-btn btn-radius btn-m">Subscribe</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= footer start ========================= -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-4">
+						<a href="http://127.0.0.1:8000/index.html"><img class="footer-logo" src="./Document_files/logo.png" alt=""></a>
+						<p>Lorem Ipsum is simply dummy text of printing and type setting industry. Lorem Ipsum been
+							industry standard dummy text ever since.</p>
+						<!-- Social Box -->
+						<div class="f-social-box">
+							<ul>
+								<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-facebook facebook-cl"></i></a></li>
+								<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-google google-plus-cl"></i></a></li>
+								<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-twitter twitter-cl"></i></a></li>
+								<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-instagram instagram-cl"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-9 col-sm-8">
+						<div class="row">
+							<div class="col-md-3 col-sm-6">
+								<h4>Job Categories</h4>
+								<ul>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Work from Home</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Internship Job</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Freelancer Job</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Part Time Job</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Full Time Job</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<h4>Job Type</h4>
+								<ul>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Create Account</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Career Counseling</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> My Oficiona</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Report a Problem</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<h4>Resources</h4>
+								<ul>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> My Account</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Support</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> How It Works</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Underwriting</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Employers</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<h4>Quick Links</h4>
+								<ul>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Jobs Listing</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Privacy Policy</a></li>
+									<li><a href="http://127.0.0.1:8000/#"><i class="fa fa-angle-double-right"></i> Term &amp; Condition</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="copyright text-center">
+							<p>Copyright © 2021 All Rights Reserved.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Signup Code -->
+		<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" id="myModalLabel1">
+					<div class="modal-body">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
+							<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="http://127.0.0.1:8000/#employer" role="tab"> <i class="ti-user"></i> Job Seeker</a> </li>
+							<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="http://127.0.0.1:8000/#candidate" role="tab"> <i class="ti-user"></i> Job Provider</a> </li>
+						</ul>
+						<!-- Nav tabs -->
+						<!-- Tab panels -->
+						<div class="tab-content">
+							<!-- Employer Panel 1-->
+							<!-- Employer Panel 1-->
+							<div class="tab-pane fade in show active" id="employer" role="tabpanel">
+								<form id="employerLoginForm">
+									<div class="form-group">
+										<input type="text" id="employerUsername" class="form-control" placeholder="Username">
+									</div>
+									<div class="form-group">
+										<input type="password" id="employerPassword" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group"> <span class="custom-checkbox">
+											<input type="checkbox" id="4">
+											<label for="4"></label>
+											Remember Me </span> <a href="http://127.0.0.1:8000/#" title="Forget" class="fl-right">Forgot
+											Password?</a>
+									</div>
+
+									<div class="form-group text-center">
+										<button type="button" class="btn theme-btn full-width btn-m" id="employerLoginButton">Login</button>
+									</div>
+									<div class="form-group">
+										<p id="employerError" style="color: red; display: none;"></p>
+									</div>
+								</form>
+								<div class="log-option"><span>OR</span></div>
+								<div class="row">
+									<div class="col-md-6"> <a href="http://127.0.0.1:8000/#" title="" class="fb-log-btn log-btn"><i class="fa fa-facebook"></i> Facebook</a> </div>
+									<div class="col-md-6"> <a href="http://127.0.0.1:8000/#" title="" class="gplus-log-btn log-btn"><i class="fa fa-google"></i> Google</a> </div>
+								</div>
+							</div>
+							<!--/.Panel 1-->
+
+							<!-- Candidate Panel 2-->
+							<div class="tab-pane fade" id="candidate" role="tabpanel">
+								<form id="candidateLoginForm">
+									<div class="form-group">
+										<input type="text" id="candidateUsername" class="form-control" placeholder="Username">
+									</div>
+									<div class="form-group">
+										<input type="password" id="candidatePassword" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group"> <span class="custom-checkbox">
+											<input type="checkbox" id="44">
+											<label for="44"></label>
+											Remember Me </span> <a href="http://127.0.0.1:8000/#" title="Forget" class="fl-right">Forgot
+											Password?</a>
+									</div>
+									<div class="form-group text-center">
+										<button type="button" class="btn theme-btn full-width btn-m" id="candidateLoginButton">LogIn</button>
+									</div>
+									<div class="form-group">
+										<p id="candidateError" style="color: red; display: none;"></p>
+									</div>
+								</form>
+								<div class="log-option"><span>OR</span></div>
+								<div class="row">
+									<div class="col-md-6"> <a href="http://127.0.0.1:8000/#" title="" class="fb-log-btn log-btn"><i class="fa fa-facebook"></i> Facebook</a> </div>
+									<div class="col-md-6"> <a href="http://127.0.0.1:8000/#" title="" class="gplus-log-btn log-btn"><i class="fa fa-google"></i> Google</a> </div>
+								</div>
+							</div>
+						</div>
+						<!-- Tab panels -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Signup -->
+		<div><a href="http://127.0.0.1:8000/#" class="scrollup">Scroll</a></div>
+
+		<!-- Jquery js-->
+		<script src="./Document_files/jquery.min.js.下载"></script>
+		<script src="./Document_files/bootstrap.min.js.下载"></script>
+		<script src="./Document_files/bootsnav.js.下载"></script>
+		<script src="./Document_files/viewportchecker.js.下载"></script>
+		<script src="./Document_files/slick.js.下载"></script>
+		<script src="./Document_files/wysihtml5-0.3.0.js.下载"></script>
+		<script src="./Document_files/bootstrap-wysihtml5.js.下载"></script>
+		<script src="./Document_files/aos.js.下载"></script>
+		<script src="./Document_files/jquery.nice-select.min.js.下载"></script>
+		<script src="./Document_files/custom.js.下载"></script>
+		<script>
+			$(window).load(function() {
+				$(".page_preloader").fadeOut("slow");
+			});
+			AOS.init();
+		</script>
+
+
+		<script>
+			document.addEventListener('DOMContentLoaded', (event) => {
+				checkLoginStatus();
+			});
+
+			function checkLoginStatus() {
+				const accessToken = localStorage.getItem('access');
+				if (!accessToken) {
+					document.getElementById('login-status').textContent = '用户未登录。';
+					return;
+				}
+
+				fetch('/api/check_login_status/', {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': 'Bearer ' + accessToken
+						}
+					})
+					.then(response => {
+						if (response.status === 403) {
+							console.log('用户未认证。');
+							document.getElementById('login-status').textContent = '用户未登录。';
+						} else if (response.ok) {
+							return response.json();
+						} else {
+							throw new Error('网络响应不正常。');
+						}
+					})
+					.then(data => {
+						if (data) {
+							console.log('登录状态：', data);
+							const loginStatus = document.getElementById('login-status');
+							const userInfo = document.getElementById('user-info');
+
+							if (data.logged_in) {
+								console.log('用户已登录为：', data.username);
+								$("#user-info").show();
+								$("#register").hide();
+								$("#login").hide();
+								$("#exit").show();
+								userInfo.innerHTML = '<i class="login-icon ti-user"></i> 欢迎：' + data.username;
+							} else {
+								console.log('用户未登录。');
+								$("#user-info").hide();
+								$("#register").show();
+								$("#login").hide();
+								$("#exit").hide();
+								userInfo.innerHTML = '';
+								userInfo.textContent = '';
+							}
+						}
+					})
+					.catch(error => {
+						console.error('错误：', error);
+					});
+			}
+		</script>
+
+		<script>
+			document.getElementById('exit').addEventListener('click', function(event) {
+				event.preventDefault();
+
+				// 清除本地存储中的用户信息
+				localStorage.removeItem('access');
+				localStorage.removeItem('refresh');
+				localStorage.removeItem('user_id');
+				localStorage.removeItem('username');
+
+				// 重定向到登录页面或主页
+				window.location.href = '/'; // 修改为您的登录页面路径
+			});
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('employerLoginButton').addEventListener('click', async function(event) {
+					event.preventDefault();
+					const username = document.getElementById('employerUsername').value;
+					const password = document.getElementById('employerPassword').value;
+					try {
+						var lists = await getlist('students');
+						var userExists = lists.some(function(user) {
+							return user.name == username;
+						});
+						if (userExists) {
+							login(username, password, 'employerError', 'student');
+						} else {
+							const errorElement = document.getElementById('employerError');
+							errorElement.textContent = 'Invalid credentials';
+							errorElement.style.display = 'block';
+						}
+					} catch (error) {
+						console.error("Error fetching student list:", error);
+					}
+				});
+
+				document.getElementById('candidateLoginButton').addEventListener('click', async function(event) {
+					event.preventDefault();
+					const username = document.getElementById('candidateUsername').value;
+					const password = document.getElementById('candidatePassword').value;
+					try {
+						var lists = await getlist('teachers');
+						var userExists = lists.some(function(user) {
+							return user.name == username;
+						});
+						if (userExists) {
+							login(username, password, 'candidateError', 'teacher');
+						} else {
+							const errorElement = document.getElementById('candidateError');
+							errorElement.textContent = 'Invalid credentials';
+							errorElement.style.display = 'block';
+
+						}
+					} catch (error) {
+
+						console.error("Error fetching teacher list:", error);
+					}
+				});
+
+				async function getlist(name) {
+					var users = [];
+					try {
+						const response = await $.ajax({
+							type: 'GET',
+							url: '/api/' + name,
+							contentType: 'application/json'
+						});
+						users = response;
+						console.log('users fetched successfully:', users);
+					} catch (error) {
+						console.log('Failed to fetch users:', error);
+					}
+					return users;
+				}
+
+				function login(username, password, errorElementId, role) {
+					fetch('/api/login', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+								'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+							},
+							body: JSON.stringify({
+								username: username,
+								password: password,
+							})
+						})
+						.then(response => {
+							if (response.ok) {
+								return response.json();
+							} else {
+								return response.json().then(data => {
+									throw new Error(data.error || 'Login failed');
+								});
+							}
+						})
+						.then(data => {
+							console.log('Login Success:', data);
+							// 保存 token 到 localStorage
+							localStorage.setItem('access', data.access);
+							localStorage.setItem('refresh', data.refresh);
+							localStorage.setItem('user_id', data.user);
+							localStorage.setItem('user_role', role);
+							window.location.href = '/'; // 跳转到主页
+						})
+						.catch((error) => {
+							console.error('Login Error:', error);
+							const errorElement = document.getElementById(errorElementId);
+							errorElement.textContent = error.message;
+							errorElement.style.display = 'block';
+						});
+				}
+
+				function getCookie(name) {
+					let cookieValue = null;
+					if (document.cookie && document.cookie !== '') {
+						const cookies = document.cookie.split(';');
+						for (let i = 0; i < cookies.length; i++) {
+							const cookie = cookies[i].trim();
+							if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break;
+							}
+						}
+					}
+					return cookieValue;
+				}
+			});
+		</script>
+	
+</div></body></html>

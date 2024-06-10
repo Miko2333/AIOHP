@@ -6,18 +6,18 @@
 <meta http-equiv="Content-Type"content="text/html;charset=UTF-8"/>
 <meta name="viewport"content="width=device-width, initial-scale=1.0">
 <title>:: Escort - Job Portal HTML Template ::</title>
-
+{% load static %}
 <!-- Favicon Icon -->
-<link rel="shortcut icon" href="assets/img/favicon.png" />
+<link rel="shortcut icon" href="{% static 'img/favicon.png" />
 
 <!-- CSS -->
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<link href="assets/plugins/icons/css/icons.css" rel="stylesheet">
-<link href="assets/plugins/animate/animate.css" rel="stylesheet">
-<link href="assets/plugins/aos-master/aos.css" rel="stylesheet">
-<link href="assets/plugins/bootstrap/css/bootsnav.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'plugins/icons/css/icons.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/animate/animate.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/aos-master/aos.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/bootstrap/css/bootsnav.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet"> 
@@ -29,7 +29,7 @@
   <div class="container"> 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand" href="index.html"> <img src="assets/img/logo.png" class="logo logo-display" alt=""> <img src="assets/img/logo.png" class="logo logo-scrolled" alt=""> </a> 
+      <a class="navbar-brand" href="index.html"> <img src="{% static 'img/logo.png" class="logo logo-display" alt=""> <img src="{% static 'img/logo.png" class="logo logo-scrolled" alt=""> </a> 
 	</div>
     <div class="collapse navbar-collapse" id="navbar-menu">
       <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
@@ -91,7 +91,7 @@
         <div class="detail-wrapper">
           <div class="detail-wrapper-body">
 			<div class="row">
-				<div class="col-md-4 text-center user_profile_img"> <img src="assets/img/company_logo_1.png" class="width-100"  alt=""/>
+				<div class="col-md-4 text-center user_profile_img"> <img src="{% static 'img/company_logo_1.png" class="width-100"  alt=""/>
 				  <h4 class="meg-0">Web Designer</h4>
 				  <span>512 Big Tower, New Delhi</span> 
 				  <div class="text-center">
@@ -232,7 +232,7 @@
 			</label>
           </div>
           <div class="u-content">
-            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="assets/img/company_logo_1.png" alt=""> </a> </div>
+            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="{% static 'img/company_logo_1.png" alt=""> </a> </div>
             <h5><a href="employer-detail.html">Product Redesign</a></h5>
             <p class="text-muted">2708 Scenic Way, IL 62373</p>
           </div>
@@ -250,7 +250,7 @@
 			</label>
           </div>
           <div class="u-content">
-            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="assets/img/company_logo_2.png" alt=""> </a> </div>
+            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="{% static 'img/company_logo_2.png" alt=""> </a> </div>
             <h5><a href="employer-detail.html">New Product Mockup</a></h5>
             <p class="text-muted">2708 Scenic Way, IL 62373</p>
           </div>
@@ -268,7 +268,7 @@
 			</label>
           </div>
           <div class="u-content">
-            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="assets/img/company_logo_3.png" alt=""> </a> </div>
+            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="{% static 'img/company_logo_3.png" alt=""> </a> </div>
             <h5><a href="employer-detail.html">Custom Php Developer</a></h5>
             <p class="text-muted">3765 C Street, Worcester</p>
           </div>
@@ -286,7 +286,7 @@
 			</label>
           </div>
           <div class="u-content">
-            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="assets/img/company_logo_4.png" alt=""> </a> </div>
+            <div class="avatar box-80"> <a href="employer-detail.html"> <img class="img-responsive" src="{% static 'img/company_logo_4.png" alt=""> </a> </div>
             <h5><a href="employer-detail.html">Wordpress Developer</a></h5>
             <p class="text-muted">2719 Duff Avenue, Winooski</p>
           </div>
@@ -298,7 +298,7 @@
 </section>
 <!-- ====================== End Job Detail 2 ================ --> 
 
-<section class="newsletter theme-bg" style="background-image:url(assets/img/bg-new.png)">
+<section class="newsletter theme-bg" style="background-image:url({% static 'img/bg-new.png)">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -326,7 +326,7 @@
   <div class="container"> 
     <div class="row">
 	  <div class="col-md-3 col-sm-4">
-        <a href="index.html"><img class="footer-logo" src="assets/img/logo.png" alt=""></a>
+        <a href="index.html"><img class="footer-logo" src="{% static 'img/logo.png" alt=""></a>
         <p>Lorem Ipsum is simply dummy text of printing and type setting industry. Lorem Ipsum been industry standard dummy text ever since.</p>
         <!-- Social Box -->
         <div class="f-social-box">
@@ -466,15 +466,15 @@
 <div><a href="#" class="scrollup">Scroll</a></div>
 
 <!-- Jquery js--> 
-<script src="assets/js/jquery.min.js"></script> 
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
-<script src="assets/plugins/bootstrap/js/bootsnav.js"></script> 
-<script src="assets/js/viewportchecker.js"></script> 
-<script src="assets/js/slick.js"></script> 
-<script src="assets/plugins/bootstrap/js/bootstrap-wysihtml5.js"></script> 
-<script src="assets/plugins/aos-master/aos.js"></script> 
-<script src="assets/plugins/nice-select/js/jquery.nice-select.min.js"></script> 
-<script src="assets/js/custom.js"></script> 
+<script src="{% static 'js/jquery.min.js' %}"></script> 
+<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script> 
+<script src="{% static 'plugins/bootstrap/js/bootsnav.js' %}"></script> 
+<script src="{% static 'js/viewportchecker.js' %}"></script> 
+<script src="{% static 'js/slick.js' %}"></script> 
+<script src="{% static 'plugins/bootstrap/js/bootstrap-wysihtml5.js' %}"></script> 
+<script src="{% static 'plugins/aos-master/aos.js' %}"></script> 
+<script src="{% static 'plugins/nice-select/js/jquery.nice-select.min.js' %}"></script> 
+<script src="{% static 'js/custom.js' %}"></script> 
 <script>
 	$(window).load(function() {
 	  $(".page_preloader").fadeOut("slow");;

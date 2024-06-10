@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online OJ Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content-header h1 {
+            margin: 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-header h1 i {
+            margin-right: 10px;
+        }
+
+        .problem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .problem-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        .problem-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list li:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .problem-title {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .problem-title i {
+            margin-right: 10px;
+        }
+
+        .status {
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .report-link a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+
+        .report-link a:hover {
+            background-color: #d1d1d1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+    </header>
+
+    <div id="submission-list" class="container">
+        <ul id="list-content" class="problem-list">
+            <!-- Dynamic submission list will be inserted here -->
+        </ul>
+    </div>
+
+    <script>
+        let studentsData = [];
+        let submissionsData = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const courseHomeworkRegex = /\/course\/(\d+)\/homework\/(\d+)\//;
+            const match = path.match(courseHomeworkRegex);
+            if (match) {
+                const courseId = match[1];
+                const homeworkId = match[2];
+
+                // 动态创建内容
+                const submissionList = document.getElementById('submission-list');
+                submissionList.innerHTML = `
+                    <div class="content-header">
+                        <h1><i class="fas fa-list"></i>提交记录列表</h1>
+                    </div>
+                    <ul id="list-content" class="problem-list"></ul>
+                `;
+
+                // 重新获取list-content元素
+                const listContent = document.getElementById('list-content');
+
+                // 获取学生数据
+                fetch('/api/students', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(students => {
+                    studentsData = students;
+                    fetchSubmissions(homeworkId, courseId, listContent);
+                })
+                .catch(error => {
+                    console.error('Error fetching students:', error);
+                });
+            } else {
+                console.error('Homework ID not found in the URL.');
+            }
+        });
+
+        function fetchSubmissions(homeworkId, courseId, listContent) {
+            // 获取提交数据并动态创建列表项
+            fetch('/api/submissions', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(submissions => {
+                submissionsData = submissions;
+                const filteredSubmissions = submissions.filter(submission => submission.homework == homeworkId);
+
+                // 通过学生ID获取最新的提交记录
+                const latestSubmissions = {};
+                filteredSubmissions.forEach(submission => {
+                    if (!latestSubmissions[submission.student] || new Date(submission.time) > new Date(latestSubmissions[submission.student].time)) {
+                        latestSubmissions[submission.student] = submission;
+                    }
+                });
+
+                Object.values(latestSubmissions).forEach(submission => {
+                    const student = studentsData.find(student => student.id === submission.student);
+                    const studentName = student ? student.name : 'Unknown';
+
+                    // 动态创建li元素并添加到listContent
+                    listContent.innerHTML += `
+                        <li>
+                            <div class="problem-title">
+                                <i class="fas fa-code"></i>
+                                <span>提交记录 ${submission.id}</span>
+                            </div>
+                            <div class="status">${new Date(submission.time).toLocaleString()}</div>
+                            <div class="status">${studentName}</div>
+                            <div class="report-link"><a href="/submission/${submission.id}/homework/${homeworkId}/course/${courseId}/student/${submission.student}/">查看报告</a></div>
+                        </li>
+                    `;
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching submissions:', error);
+            });
+        }
+    </script>
+</body>
+</html>

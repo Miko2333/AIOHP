@@ -130,7 +130,7 @@
                                 <div class="col-sm-12 col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Class number</label>
-                                        <input class="form-control" type="number" name="class_number" placeholder="Class number" required>
+                                        <input class="form-control" type="number" name="number" placeholder="Class number" required>
                                     </div>
                                 </div>
                             </div>
@@ -436,7 +436,7 @@ $(document).ready(function() {
             isValid = false;
         } else {
             var teacherExists = teachers.some(function(teacher) {
-				if(localStorage.getItem('user_id')==teacherId)
+				alert(localStorage.getItem('user_id'))
 				return teacher.id == teacherId;
             });
 
@@ -502,7 +502,6 @@ $(document).ready(function() {
         });
     });
 });
-
     </script>
 </body>
 </html>

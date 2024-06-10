@@ -39,42 +39,18 @@
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="dropdown active"> <a href="index.html">Home</a> </li>
-						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employer</a>
-							<ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="employer.html">Employer</a></li>
-								<li><a href="employer-detail.html">Employer Detail</a></li>
-								<li><a href="create-company.html">Create Company</a></li>
-								<li><a href="manage-resume.html">Manage Resume</a></li>
-								<li><a href="add-job.html">Add Job</a></li>
-								<li><a href="resume-detail.html">Resume Detail</a></li>
-							</ul>
-						</li>
-						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Candidate</a>
-							<ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="candidate.html">Candidate</a></li>
-								<li><a href="browse-job.html">Browse Jobs</a></li>
-								<li><a href="manage-job.html">Manage Jobs</a></li>
-								<li><a href="browse-category.html">Browse Categories</a></li>
-							</ul>
-						</li>
-						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-							<ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="profile-settings.html">Profile Settings</a></li>
-								<li><a href="job-detail.html">Job Detail</a></li>
-								<li><a href="job-layout-one.html">Job Layout One</a></li>
-								<li><a href="404.html">404</a></li>
-							</ul>
-						</li>
-						<li class="dropdown"> <a href="contact.html">Contact</a> </li>
-					</ul>
+						<li class="dropdown active"> <a href="/">主页</a> </li>
+						<li class="dropdown active"> <a href="/courses">课程清单</a> </li>
+						
+</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li  id="login"  class="br-right"  style="cursor: pointer;"><a class="btn-signup red-btn" data-toggle="modal" data-target="#signin"><i
-									class="login-icon ti-user"></i>Login</a></li>
-						<li id="exit" class="br-right"  style="cursor: pointer; display: none;"><a class="btn-signup red-btn" ><i
-									class="login-icon ti-user"></i>EXIT</a></li>
-						<li class="sign-up" id="register" style="cursor: pointer;"><a class="btn-signup red-btn" href="signup"><span
-									class="ti-briefcase"></span>Register</a></li>
+						<li id="login" class="br-right" style="cursor: pointer;"><a class="btn-signup red-btn"
+								data-toggle="modal" data-target="#signin"><i class="login-icon ti-user"></i>Login</a>
+						</li>
+						<li id="exit" class="br-right" style="cursor: pointer; display: none;"><a
+								class="btn-signup red-btn"><i class="login-icon ti-user"></i>EXIT</a></li>
+						<li class="sign-up" id="register" style="cursor: pointer;"><a class="btn-signup red-btn"
+								href="signup"><span class="ti-briefcase"></span>Register</a></li>
 						<li class="status-container sign-up " id="user-info" style="display: none; margin: 25px;">
 							<span id="login-status" class="status-text"></span>
 						</li>
@@ -90,11 +66,12 @@
 			<div class="container">
 				<div class="col-md-8 col-sm-10">
 					<div class="caption cl-white home_two_slid">
-						<h2>Search Between More Then <span class="theme-cl">50,000</span> Courses.</h2>
-						<p>Trending Course Keywords: <span class="trending_key"><a href="#">Algorithm Design</a></span> <span
-								class="trending_key"><a href="#">Database</a></span> <span class="trending_key"><a
+						<h2>AIOHP代码评测平台提供超过 <span class="theme-cl">50,000</span> 门课程.</h2>
+						<p>优质课程： <span class="trending_key"><a href="#">Algorithm Design</a></span>
+							<span class="trending_key"><a href="#">Database</a></span> <span class="trending_key"><a
 									href="#">Data Structure</a></span> <span class="trending_key"><a href="#">
-									Software Developing</a></span></p>
+									Software Developing</a></span>
+						</p>
 					</div>
 					<form>
 						<fieldset class="utf_home_form_one">
@@ -132,7 +109,7 @@
 								</select>
 							</div>
 							<div class="col-md-2 col-sm-2 padd-0 m-clear">
-								<button type="submit" class="btn theme-btn cl-white seub-btn">Search</button>
+								<li  class="btn theme-btn cl-white seub-btn"><a href="/courses">Start</a></li>
 							</div>
 						</fieldset>
 					</form>
@@ -140,603 +117,6 @@
 			</div>
 		</div>
 		<!-- ======================= End Banner ===================== -->
-
-		<!-- ================= Job start ========================= -->
-		<section class="padd-top-80 padd-bot-80">
-			<div class="container">
-				<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
-					<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="#recent" role="tab"> Latest
-							Jobs</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#" role="tab"> Recent Jobs</a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade in show active" id="recent" role="tabpanel">
-						<div class="row">
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox" checked>
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_1.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Product Redesign</a></h5>
-										<p class="text-muted">2708 Scenic Way, IL 62373</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_2.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">New Product Mockup</a></h5>
-										<p class="text-muted">2708 Scenic Way, IL 62373</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox" checked>
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_3.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Custom Php Developer</a></h5>
-										<p class="text-muted">3765 C Street, Worcester</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_4.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Wordpress Developer</a></h5>
-										<p class="text-muted">2719 Duff Avenue, Winooski</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span
-										class="job-type internship-type">Internship</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox" checked>
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_5.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Web Maintenence</a></h5>
-										<p class="text-muted">2708 Scenic Way, IL 62373</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_6.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Photoshop Designer</a></h5>
-										<p class="text-muted">2865 Emma Street, Lubbock</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_7.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">HTML5 & CSS3 Coder</a></h5>
-										<p class="text-muted">2719 Burnside Avenue, Logan</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox" checked>
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_8.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">.Net Developer</a></h5>
-										<p class="text-muted">3815 Forest Drive, Alexandria</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Featured Job -->
-					<div class="tab-pane fade" id="featured" role="tabpanel">
-						<div class="row">
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_6.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">.Net Developer</a></h5>
-										<p class="text-muted">2708 Scenic Way, IL 62373</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_4.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Java Developer</a></h5>
-										<p class="text-muted">2708 Scenic Way, IL 62373</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_5.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Web Maintenence</a></h5>
-										<p class="text-muted">3765 C Street, Worcester</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_1.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Wordpress Developer</a></h5>
-										<p class="text-muted">2719 Duff Avenue, Winooski</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span
-										class="job-type internship-type">Internship</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_7.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Custom Php Developer</a></h5>
-										<p class="text-muted">2708 Scenic Way, IL 62373</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_8.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">New Product Mockup</a></h5>
-										<p class="text-muted">2865 Emma Street, Lubbock</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type full-type">Full Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_3.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Product Redesign</a></h5>
-										<p class="text-muted">2719 Burnside Avenue, Logan</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-
-							<!-- Single Job -->
-							<div class="col-md-3 col-sm-6">
-								<div class="utf_grid_job_widget_area"> <span class="job-type part-type">Part Time</span>
-									<div class="utf_job_like">
-										<label class="toggler toggler-danger">
-											<input type="checkbox">
-											<i class="fa fa-heart"></i>
-										</label>
-									</div>
-									<div class="u-content">
-										<div class="avatar box-80"> <a href="employer-detail.html"> <img
-													class="img-responsive" src="{% static 'img/company_logo_6.png' %}"
-													alt=""> </a> </div>
-										<h5><a href="employer-detail.html">Front End Designer</a></h5>
-										<p class="text-muted">3815 Forest Drive, Alexandria</p>
-									</div>
-									<div class="utf_apply_job_btn_item"> <a href="job-detail.html"
-											class="btn job-browse-btn btn-radius br-light">Apply Now</a> </div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 mrg-top-20 text-center">
-					<a href="job-layout-one.html" class="btn theme-btn btn-m">Browse All Jobs</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- ================= Category start ========================= -->
-		<section class="utf_job_category_area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="heading">
-							<h2>Job Categories</h2>
-							<p>Lorem Ipsum is simply dummy text printing and type setting industry Lorem Ipsum been
-								industry standard dummy text ever since when unknown printer took a galley.</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="icon-bargraph" aria-hidden="true"></i>
-										</div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Web & Software Dev</h4>
-											<p>122 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="icon-tools" aria-hidden="true"></i>
-										</div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Data Science & Analitycs</h4>
-											<p>155 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="ti-briefcase" aria-hidden="true"></i>
-										</div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Accounting & Consulting</h4>
-											<p>300 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="ti-ruler-pencil"
-												aria-hidden="true"></i> </div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Writing & Translations</h4>
-											<p>80 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="icon-briefcase"
-												aria-hidden="true"></i> </div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Sales & Marketing</h4>
-											<p>120 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="icon-wine" aria-hidden="true"></i>
-										</div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Graphics & Design</h4>
-											<p>78 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="ti-world" aria-hidden="true"></i>
-										</div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Digital Marketing</h4>
-											<p>90 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="browse-job.html" title="">
-								<div class="utf_category_box_area">
-									<div class="utf_category_desc">
-										<div class="utf_category_icon"> <i class="ti-desktop" aria-hidden="true"></i>
-										</div>
-										<div class="category-detail utf_category_desc_text">
-											<h4>Education & Training</h4>
-											<p>210 Jobs</p>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-12 mrg-top-20 text-center">
-							<a href="browse-category.html" class="btn theme-btn btn-m">View All Categories</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="newsletter theme-bg" style="background-image:url({% static 'img/bg-new.png' %})">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="heading light">
-							<h2>Subscribe Our Newsletter!</h2>
-							<p>Lorem Ipsum is simply dummy text printing and type setting industry Lorem Ipsum been
-								industry standard dummy text ever since when unknown printer took a galley.</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-						<div class="newsletter-box text-center">
-							<div class="input-group"> <span class="input-group-addon"><span
-										class="ti-email theme-cl"></span></span>
-								<input type="text" class="form-control" placeholder="Enter your User name...">
-							</div>
-							<button type="button" class="btn theme-btn btn-radius btn-m">Subscribe</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ================= footer start ========================= -->
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-4">
-						<a href="index.html"><img class="footer-logo" src="{% static 'img/logo.png' %}" alt=""></a>
-						<p>Lorem Ipsum is simply dummy text of printing and type setting industry. Lorem Ipsum been
-							industry standard dummy text ever since.</p>
-						<!-- Social Box -->
-						<div class="f-social-box">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook facebook-cl"></i></a></li>
-								<li><a href="#"><i class="fa fa-google google-plus-cl"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter twitter-cl"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram instagram-cl"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-9 col-sm-8">
-						<div class="row">
-							<div class="col-md-3 col-sm-6">
-								<h4>Job Categories</h4>
-								<ul>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Work from Home</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Internship Job</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Freelancer Job</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Part Time Job</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Full Time Job</a></li>
-								</ul>
-							</div>
-							<div class="col-md-3 col-sm-6">
-								<h4>Job Type</h4>
-								<ul>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Create Account</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Career Counseling</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> My Oficiona</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Report a Problem</a></li>
-								</ul>
-							</div>
-							<div class="col-md-3 col-sm-6">
-								<h4>Resources</h4>
-								<ul>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> My Account</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Support</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> How It Works</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Underwriting</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Employers</a></li>
-								</ul>
-							</div>
-							<div class="col-md-3 col-sm-6">
-								<h4>Quick Links</h4>
-								<ul>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Jobs Listing</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Privacy Policy</a></li>
-									<li><a href="#"><i class="fa fa-angle-double-right"></i> Term & Condition</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="copyright text-center">
-							<p>Copyright © 2021 All Rights Reserved.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<!-- Signup Code -->
 		<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
 			aria-hidden="true">
 			<div class="modal-dialog">
@@ -745,9 +125,9 @@
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
 							<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="#employer"
-									role="tab"> <i class="ti-user"></i> Job Seeker</a> </li>
+									role="tab"> <i class="ti-user"></i> 学生</a> </li>
 							<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#candidate" role="tab"> <i
-										class="ti-user"></i> Job Provider</a> </li>
+										class="ti-user"></i>教师</a> </li>
 						</ul>
 						<!-- Nav tabs -->
 						<!-- Tab panels -->
@@ -764,13 +144,8 @@
 										<input type="password" id="employerPassword" class="form-control"
 											placeholder="Password">
 									</div>
-									<div class="form-group"> <span class="custom-checkbox">
-											<input type="checkbox" id="4">
-											<label for="4"></label>
-											Remember Me </span> <a href="#" title="Forget" class="fl-right">Forgot
-											Password?</a>
-									</div>
 
+		
 									<div class="form-group text-center">
 										<button type="button" class="btn theme-btn full-width btn-m"
 											id="employerLoginButton">Login</button>
@@ -779,16 +154,10 @@
 										<p id="employerError" style="color: red; display: none;"></p>
 									</div>
 								</form>
-								<div class="log-option"><span>OR</span></div>
-								<div class="row">
-									<div class="col-md-6"> <a href="#" title="" class="fb-log-btn log-btn"><i
-												class="fa fa-facebook"></i> Facebook</a> </div>
-									<div class="col-md-6"> <a href="#" title="" class="gplus-log-btn log-btn"><i
-												class="fa fa-google"></i> Google</a> </div>
-								</div>
+	
 							</div>
 							<!--/.Panel 1-->
-
+		
 							<!-- Candidate Panel 2-->
 							<div class="tab-pane fade" id="candidate" role="tabpanel">
 								<form id="candidateLoginForm">
@@ -800,12 +169,7 @@
 										<input type="password" id="candidatePassword" class="form-control"
 											placeholder="Password">
 									</div>
-									<div class="form-group"> <span class="custom-checkbox">
-											<input type="checkbox" id="44">
-											<label for="44"></label>
-											Remember Me </span> <a href="#" title="Forget" class="fl-right">Forgot
-											Password?</a>
-									</div>
+
 									<div class="form-group text-center">
 										<button type="button" class="btn theme-btn full-width btn-m"
 											id="candidateLoginButton">LogIn</button>
@@ -814,13 +178,7 @@
 										<p id="candidateError" style="color: red; display: none;"></p>
 									</div>
 								</form>
-								<div class="log-option"><span>OR</span></div>
-								<div class="row">
-									<div class="col-md-6"> <a href="#" title="" class="fb-log-btn log-btn"><i
-												class="fa fa-facebook"></i> Facebook</a> </div>
-									<div class="col-md-6"> <a href="#" title="" class="gplus-log-btn log-btn"><i
-												class="fa fa-google"></i> Google</a> </div>
-								</div>
+								
 							</div>
 						</div>
 						<!-- Tab panels -->
@@ -828,8 +186,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Signup -->
-		<div><a href="#" class="scrollup">Scroll</a></div>
+		
+
+<div><a href="#" class="scrollup">Scroll</a></div>
 
 		<!-- Jquery js-->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
@@ -894,8 +253,8 @@
 								userInfo.innerHTML = '<i class="login-icon ti-user"></i> 欢迎：' + data.username;
 							} else {
 								console.log('用户未登录。');
-								 $("#user-info").hide();
-								 $("#register").show();	
+								$("#user-info").hide();
+								$("#register").show();
 								$("#login").hide();
 								$("#exit").hide();
 								userInfo.innerHTML = '';
@@ -908,38 +267,84 @@
 					});
 			}
 		</script>
-		
+
 		<script>
-		document.getElementById('exit').addEventListener('click', function(event) {
-		    event.preventDefault();
-		
-		    // 清除本地存储中的用户信息
-		    localStorage.removeItem('access');
-		    localStorage.removeItem('refresh');
-		    localStorage.removeItem('user_id');
-		    localStorage.removeItem('username');
-		
-		    // 重定向到登录页面或主页
-		    window.location.href = '/'; // 修改为您的登录页面路径
-		});
+			document.getElementById('exit').addEventListener('click', function(event) {
+				event.preventDefault();
+
+				// 清除本地存储中的用户信息
+				localStorage.removeItem('access');
+				localStorage.removeItem('refresh');
+				localStorage.removeItem('user_id');
+				localStorage.removeItem('username');
+
+				// 重定向到登录页面或主页
+				window.location.href = '/'; // 修改为您的登录页面路径
+			});
 		</script>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-				document.getElementById('employerLoginButton').addEventListener('click', function(event) {
+				document.getElementById('employerLoginButton').addEventListener('click', async function(event) {
 					event.preventDefault();
 					const username = document.getElementById('employerUsername').value;
 					const password = document.getElementById('employerPassword').value;
-					login(username, password, 'employerError');
+					try {
+						var lists = await getlist('students');
+						var userExists = lists.some(function(user) {
+							return user.name == username;
+						});
+						if (userExists) {
+							login(username, password, 'employerError', 'student');
+						} else {
+							const errorElement = document.getElementById('employerError');
+							errorElement.textContent = 'Invalid credentials';
+							errorElement.style.display = 'block';
+						}
+					} catch (error) {
+						console.error("Error fetching student list:", error);
+					}
 				});
 
-				document.getElementById('candidateLoginButton').addEventListener('click', function(event) {
+				document.getElementById('candidateLoginButton').addEventListener('click', async function(event) {
 					event.preventDefault();
 					const username = document.getElementById('candidateUsername').value;
 					const password = document.getElementById('candidatePassword').value;
-					login(username, password, 'candidateError');
+					try {
+						var lists = await getlist('teachers');
+						var userExists = lists.some(function(user) {
+							return user.name == username;
+						});
+						if (userExists) {
+							login(username, password, 'candidateError', 'teacher');
+						} else {
+							const errorElement = document.getElementById('candidateError');
+							errorElement.textContent = 'Invalid credentials';
+							errorElement.style.display = 'block';
+
+						}
+					} catch (error) {
+
+						console.error("Error fetching teacher list:", error);
+					}
 				});
 
-				function login(username, password, errorElementId) {
+				async function getlist(name) {
+					var users = [];
+					try {
+						const response = await $.ajax({
+							type: 'GET',
+							url: '/api/' + name,
+							contentType: 'application/json'
+						});
+						users = response;
+						console.log('users fetched successfully:', users);
+					} catch (error) {
+						console.log('Failed to fetch users:', error);
+					}
+					return users;
+				}
+
+				function login(username, password, errorElementId, role) {
 					fetch('/api/login', {
 							method: 'POST',
 							headers: {
@@ -965,6 +370,8 @@
 							// 保存 token 到 localStorage
 							localStorage.setItem('access', data.access);
 							localStorage.setItem('refresh', data.refresh);
+							localStorage.setItem('user_id', data.user);
+							localStorage.setItem('user_role', role);
 							window.location.href = '/'; // 跳转到主页
 						})
 						.catch((error) => {

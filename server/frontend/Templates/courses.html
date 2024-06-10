@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+	<head>
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>:: Escort - Job Portal HTML Template ::</title>
+		{% load static %}
+		<!-- Favicon Icon -->
+		<link rel="shortcut icon" href="{% static '/img/favicon.png' %}" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="{% static '/plugins/bootstrap/css/bootstrap.min.css' %}">
+		<link href="{% static '/plugins/bootstrap/css/bootsnav.css' %}" rel="stylesheet">
+		<link href="{% static '/plugins/icons/css/icons.css' %}" rel="stylesheet">
+		<link href="{% static '/plugins/animate/animate.css' %}" rel="stylesheet">
+		<link href="{% static '/plugins/aos-master/aos.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static '/plugins/nice-select/css/nice-select.css' %}">
+		<link href="{% static '/css/style.css' %}" rel="stylesheet">
+		<link href="{% static '/css/responsive.css' %}" rel="stylesheet">
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">
+	</head>
+	<body class="utf_skin_area">
+		<div class="page_preloader"></div>
+		<!-- ======================= Start Navigation ===================== -->
+		<nav class="navbar navbar-default navbar-mobile navbar-fixed white no-background bootsnav">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
+					<a class="navbar-brand" href="index.html"> <img src="{% static 'img/logo1.svg' %}" class="logo logo-display" alt=""> <img src="{% static 'img/logo1.svg' %}" class="logo logo-scrolled" alt=""> </a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
+						<li class="dropdown active"> <a href="/">主页</a> </li>
+						<li class="dropdown active"> <a href="/courses">课程清单</a> </li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="login" class="br-right" style="cursor: pointer;"><a class="btn-signup red-btn" data-toggle="modal" data-target="#signin"><i class="login-icon ti-user"></i>Login</a></li>
+						<li id="exit" class="br-right" style="cursor: pointer; display: none;"><a class="btn-signup red-btn"><i class="login-icon ti-user"></i>EXIT</a></li>
+						<li class="sign-up" id="register" style="cursor: pointer;"><a class="btn-signup red-btn" href="/signup"><span class="ti-briefcase"></span>Register</a></li>
+						<li class="status-container sign-up " id="user-info" style="display: none; margin: 25px;">
+							<span id="login-status" class="status-text"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- ======================= End Navigation ===================== --> 
+
+		<!-- ======================= Page Title ===================== -->
+		<div class="page-title">
+			<div class="container">
+				<div class="page-caption">
+					<h2>课程清单</h2>
+					<p><a href="#" title="主页">主页</a> <i class="ti-angle-double-right"></i> 课程清单</p>
+				</div>
+			</div>
+		</div>
+		<!-- ======================= End Page Title ===================== --> 
+
+		<!-- ====================== Start Job Detail 2 ================ -->
+		<section class="padd-top-80 padd-bot-80">
+			<div class="container"> 
+				<div class="row"> 
+					<div id="homeworks-container"></div>
+				</div>
+			</div>
+		</section>
+		<!-- ====================== End Job Detail 2 ================ --> 
+
+		<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" id="myModalLabel1">
+					<div class="modal-body">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
+							<li class="nav-item active"> <a class="nav-link" data-toggle="tab" href="#employer" role="tab"> <i class="ti-user"></i> 学生</a> </li>
+							<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#candidate" role="tab"> <i class="ti-user"></i>教师</a> </li>
+						</ul>
+						<!-- Nav tabs -->
+						<!-- Tab panels -->
+						<div class="tab-content">
+							<!-- Employer Panel 1-->
+							<div class="tab-pane fade in show active" id="employer" role="tabpanel">
+								<form id="employerLoginForm">
+									<div class="form-group">
+										<input type="text" id="employerUsername" class="form-control" placeholder="Username">
+									</div>
+									<div class="form-group">
+										<input type="password" id="employerPassword" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group text-center">
+										<button type="button" class="btn theme-btn full-width btn-m" id="employerLoginButton">Login</button>
+									</div>
+									<div class="form-group">
+										<p id="employerError" style="color: red; display: none;"></p>
+									</div>
+								</form>
+							</div>
+							<!--/.Panel 1-->
+							<!-- Candidate Panel 2-->
+							<div class="tab-pane fade" id="candidate" role="tabpanel">
+								<form id="candidateLoginForm">
+									<div class="form-group">
+										<input type="text" id="candidateUsername" class="form-control" placeholder="Username">
+									</div>
+									<div class="form-group">
+										<input type="password" id="candidatePassword" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group text-center">
+										<button type="button" class="btn theme-btn full-width btn-m" id="candidateLoginButton">LogIn</button>
+									</div>
+									<div class="form-group">
+										<p id="candidateError" style="color: red; display: none;"></p>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- Tab panels -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Apply Job Popup --> 
+		<div><a href="#" class="scrollup">Scroll</a></div>
+
+		<!-- Jquery js--> 
+		<script src="{% static '/js/jquery.min.js' %}"></script>
+		<script src="{% static '/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static '/plugins/bootstrap/js/bootsnav.js' %}"></script>
+		<script src="{% static '/js/viewportchecker.js' %}"></script>
+		<script src="{% static '/js/slick.js' %}"></script>
+		<script src="{% static '/plugins/bootstrap/js/bootstrap-wysihtml5.js' %}"></script>
+		<script src="{% static '/plugins/aos-master/aos.js' %}"></script>
+		<script src="{% static '/plugins/nice-select/js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static '/js/custom.js' %}"></script>
+		<script>
+			$(window).load(function() {
+				$(".page_preloader").fadeOut("slow");
+			});
+			AOS.init();
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				fetch('/api/courses')
+					.then(response => response.json())
+					.then(data => {
+						const homeworksContainer = document.getElementById('homeworks-container');
+
+						data.forEach(course => {
+							// 创建卡片的HTML内容
+							const cardHTML = `
+								<div class="job-verticle-list">
+									<div class="vertical-job-card">
+										<div class="vertical-job-header">
+											<div class="vrt-job-cmp-logo"> 
+												<a href="/course/${course.id}">
+													<img src="{% static 'img/company_logo_1.png' %}" class="img-responsive" alt="" />
+												</a> 
+											</div>
+											<h4><a href="/course/${course.id}">${course.name}</a></h4>
+											<span class="com-tagline">${course.teacher_name}</span> 
+											<span class="pull-right vacancy-no">学分： <span class="v-count">${course.academy}</span></span> 
+										</div>
+										<div class="vertical-job-body">
+											<div class="row">
+												<div class="col-md-9 col-sm-12 col-xs-12">
+													<ul class="can-skils">
+														<li><strong>截止日期: </strong>${new Date(course.date_created).toLocaleString()}</li>
+														<li><strong>余量: </strong>${course.capacity-course.student.length}</li>
+														<li>${course.description}</li>
+													</ul>
+												</div>
+												<div class="col-md-3 col-sm-12 col-xs-12">
+													<div class="vrt-job-act">
+														<a href="/course/${course.id}" class="btn-job light-gray-btn">查看课程</a>
+													</div>
+												</div>
+											</div>
+										</div>            
+									</div>
+								</div>
+							`;
+							// 将卡片插入到容器中
+							homeworksContainer.insertAdjacentHTML('beforeend', cardHTML);
+						});
+					})
+					.catch(error => {
+						console.error('获取课程信息时出错:', error);
+					});
+			});
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', (event) => {
+				checkLoginStatus();
+			});
+		
+			function checkLoginStatus() {
+				const accessToken = localStorage.getItem('access');
+				if (!accessToken) {
+					document.getElementById('login-status').textContent = '用户未登录。';
+					return;
+				}
+		
+				fetch('/api/check_login_status/', {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': 'Bearer ' + accessToken
+						}
+					})
+					.then(response => {
+						if (response.status === 403) {
+							console.log('用户未认证。');
+							document.getElementById('login-status').textContent = '用户未登录。';
+						} else if (response.ok) {
+							return response.json();
+						} else {
+							throw new Error('网络响应不正常。');
+						}
+					})
+					.then(data => {
+						if (data) {
+							console.log('登录状态：', data);
+							const loginStatus = document.getElementById('login-status');
+							const userInfo = document.getElementById('user-info');
+		
+							if (data.logged_in) {
+								console.log('用户已登录为：', data.username);
+								$("#user-info").show();
+								$("#register").hide();
+								$("#login").hide();
+								$("#exit").show();
+								userInfo.innerHTML = '<i class="login-icon ti-user"></i> 欢迎：' + data.username;
+							} else {
+								console.log('用户未登录。');
+								$("#user-info").hide();
+								$("#register").show();
+								$("#login").hide();
+								$("#exit").hide();
+								userInfo.innerHTML = '';
+								userInfo.textContent = '';
+							}
+						}
+					})
+					.catch(error => {
+						console.error('错误：', error);
+					});
+			}
+		</script>
+		<script>
+			document.getElementById('exit').addEventListener('click', function(event) {
+				event.preventDefault();
+		
+				// 清除本地存储中的用户信息
+				localStorage.removeItem('access');
+				localStorage.removeItem('refresh');
+				localStorage.removeItem('user_id');
+				localStorage.removeItem('username');
+		
+				// 重定向到登录页面或主页
+				window.location.href = '/courses'; // 修改为您的登录页面路径
+			});
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('employerLoginButton').addEventListener('click', async function(event) {
+					event.preventDefault();
+					const username = document.getElementById('employerUsername').value;
+					const password = document.getElementById('employerPassword').value;
+					try {
+						var lists = await getlist('students');
+						var userExists = lists.some(function(user) {
+							return user.name == username;
+						});
+						if (userExists) {
+							login(username, password, 'employerError', 'student');
+						} else {
+							const errorElement = document.getElementById('employerError');
+							errorElement.textContent = 'Invalid credentials';
+							errorElement.style.display = 'block';
+						}
+					} catch (error) {
+						console.error("Error fetching student list:", error);
+					}
+				});
+		
+				document.getElementById('candidateLoginButton').addEventListener('click', async function(event) {
+					event.preventDefault();
+					const username = document.getElementById('candidateUsername').value;
+					const password = document.getElementById('candidatePassword').value;
+					try {
+						var lists = await getlist('teachers');
+						var userExists = lists.some(function(user) {
+							return user.name == username;
+						});
+						if (userExists) {
+							login(username, password, 'candidateError', 'teacher');
+						} else {
+							const errorElement = document.getElementById('candidateError');
+							errorElement.textContent = 'Invalid credentials';
+							errorElement.style.display = 'block';
+						}
+					} catch (error) {
+						console.error("Error fetching teacher list:", error);
+					}
+				});
+		
+				async function getlist(name) {
+					var users = [];
+					try {
+						const response = await $.ajax({
+							type: 'GET',
+							url: '/api/' + name,
+							contentType: 'application/json'
+						});
+						users = response;
+						console.log('users fetched successfully:', users);
+					} catch (error) {
+						console.log('Failed to fetch users:', error);
+					}
+					return users;
+				}
+		
+				function login(username, password, errorElementId, role) {
+					fetch('/api/login', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+								'X-CSRFToken': getCookie('csrftoken') // 包含 CSRF token
+							},
+							body: JSON.stringify({
+								username: username,
+								password: password,
+							})
+						})
+						.then(response => {
+							if (response.ok) {
+								return response.json();
+							} else {
+								return response.json().then(data => {
+									throw new Error(data.error || 'Login failed');
+								});
+							}
+						})
+						.then(data => {
+							console.log('Login Success:', data);
+							// 保存 token 到 localStorage
+							localStorage.setItem('access', data.access);
+							localStorage.setItem('refresh', data.refresh);
+							localStorage.setItem('user_id', data.user);
+							localStorage.setItem('user_role', role);
+							window.location.href = '/courses'; // 跳转到主页
+						})
+						.catch((error) => {
+							console.error('Login Error:', error);
+							const errorElement = document.getElementById(errorElementId);
+							errorElement.textContent = error.message;
+							errorElement.style.display = 'block';
+						});
+				}
+		
+				function getCookie(name) {
+					let cookieValue = null;
+					if (document.cookie && document.cookie !== '') {
+						const cookies = document.cookie.split(';');
+						for (let i = 0; i < cookies.length; i++) {
+							const cookie = cookies[i].trim();
+							if (cookie.substring(0, name.length + 1) === (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break;
+							}
+						}
+					}
+					return cookieValue;
+				}
+			});
+		</script>
+		<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const teacherButton = document.createElement('button');
+    teacherButton.innerText = '添加课程';
+    teacherButton.className = 'btn btn-primary';
+    teacherButton.style.position = 'absolute';
+    teacherButton.style.top = '270px';
+		teacherButton.style.width = '100px';
+		teacherButton.style.borderRadius = '12px';
+		teacherButton.style.height = '50px';
+    teacherButton.style.right = '20px';
+    teacherButton.style.zIndex = '1000'; // Ensure it appears on top of other elements
+
+    teacherButton.addEventListener('click', function() {
+        const userId = localStorage.getItem('user_id');
+        if (userId) {
+            fetch('/api/teachers')
+                .then(response => response.json())
+                .then(teachers => {
+                    const teacher = teachers.find(teacher => teacher.user == userId);
+                    if (teacher) {
+                        window.location.href = `/course/create`;
+                    } else {
+                        alert('教师信息未找到');
+                    }
+                })
+                .catch(error => {
+                    console.error('获取教师信息时出错:', error);
+                });
+        } else {
+            alert('用户未登录');
+        }
+    });
+
+    document.body.appendChild(teacherButton);
+});
+
+		</script>
+	</body>
+</html>

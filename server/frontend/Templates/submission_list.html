@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online OJ Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content-header h1 {
+            margin: 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-header h1 i {
+            margin-right: 10px;
+        }
+
+        .problem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .problem-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        .problem-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list li:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .problem-title {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .problem-title i {
+            margin-right: 10px;
+        }
+
+        .status {
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .report-link a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+
+        .report-link a:hover {
+            background-color: #d1d1d1;
+        }
+
+        .logout-button {
+            padding: 5px 10px;
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+		<button class="logout-button" onclick="logout()">退出</button>
+        
+    </header>
+
+    <div id="submission-list" class="container">
+        <ul id="list-content" class="problem-list">
+            <!-- Dynamic submission list will be inserted here -->
+        </ul>
+    </div>
+
+    <script>
+        const ids = getIdsFromUrl();
+        const courseId = ids.courseId;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ids = getIdsFromUrl();
+            const homeworkId = ids.homeworkId;
+            const studentId = ids.studentId;
+            if (!studentId) {
+                console.error('Student ID not found in the URL.');
+                return;
+            }
+
+            fetchSubmissionsByStudentAndHomework(studentId, homeworkId);
+        });
+
+        function getIdsFromUrl() {
+            const url = window.location.href;
+            const matches = url.match(/submission\/course\/(\d+)\/homework\/(\d+)\/student\/(\d+)\//);
+            return matches ? { courseId: matches[1], homeworkId: matches[2], studentId: matches[3] } : null;
+        }
+
+        function fetchSubmissionsByStudentAndHomework(studentId, homeworkId) {
+            // 获取当前学生的提交记录
+            fetch('/api/submissions', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(submissions => {
+                const studentSubmissions = submissions.filter(submission => submission.student == studentId && submission.homework == homeworkId);
+                displaySubmissions(studentSubmissions);
+            })
+            .catch(error => {
+                console.error('Error fetching submissions for student:', error);
+            });
+        }
+
+        function displaySubmissions(submissions) {
+            const listContent = document.getElementById('list-content');
+            listContent.innerHTML = ''; // 清空内容
+
+            submissions.forEach(submission => {
+                // 动态创建li元素并添加到listContent
+                listContent.innerHTML += `
+                    <li>
+                        <div class="problem-title">
+                            <i class="fas fa-code"></i>
+                            <span>提交记录 ${submission.id}</span>
+                        </div>
+                        <div class="status">${new Date(submission.time).toLocaleString()}</div>
+                        <div class="report-link"><a href="/submission/${submission.id}/homework/${submission.homework}/course/${courseId}/student/${submission.student}/">查看报告</a></div>
+                    </li>
+                `;
+            });
+        }
+
+        function logout() {
+            const ids = getIdsFromUrl();
+            if (ids) {
+                var studentId = ids.studentId;
+                var courseId = ids.courseId;
+                var homeworkId = ids.homeworkId;
+            }
+            // 执行退出操作，例如清除本地存储并重定向到登录页面
+            window.location.href = `/course/${courseId}/student/${studentId}`; // 假设退出后重定向到学生的提交页面
+        }
+    </script>
+</body>
+</html>

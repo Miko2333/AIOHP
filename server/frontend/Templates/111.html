@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>提交作业</title>
+</head>
+<body>
+    <h1>提交作业</h1>
+    <form id="submission-form" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="id_student">Student:</label>
+            <select name="student" required id="id_student">
+                <option value="" selected>---------</option>
+                <option value="1">BaiLei</option>
+            </select>
+        </p>
+        <p>
+            <label for="id_homework">Homework:</label>
+            <select name="homework" required id="id_homework">
+                <option value="" selected>---------</option>
+                <option value="4">飞机大战</option>
+            </select>
+        </p>
+        <p>
+            <label for="id_content">Content:</label>
+            <textarea name="content" cols="40" rows="10" id="id_content">
+                function merge(nums1, m, nums2, n) {
+                    let i = m - 1;
+                    let j = n - 1;
+                    let k = m + n - 1;
+                    while (j >= 0) {
+                        if (i >= 0 && nums1[i] > nums2[j]) {
+                            nums1[k--] = nums1[i--];
+                        } else {
+                            nums1[k--] = nums2[j--];
+                        }
+                    }
+                    return nums1;
+                }
+            </textarea>
+        </p>
+        <button type="submit" id="submit-button">提交</button>
+    </form>
+    <pre id="output-pre">输出内容将在这里显示...</pre>
+
+    <script>
+		function getCookie(name) {
+								let cookieValue = null;
+								if (document.cookie && document.cookie !== '') {
+									const cookies = document.cookie.split(';');
+									for (let i = 0; i < cookies.length; i++) {
+										const cookie = cookies[i].trim();
+										if (cookie.substring(0, name.length + 1) === (name + '=')) {
+											cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+											break;
+										}
+									}
+								}
+								return cookieValue;
+							}
+      document.getElementById('submit-button').addEventListener('click', function(event) {
+          event.preventDefault(); // 阻止默认表单提交行为
+          const codeContent = document.getElementById('id_content').value;
+          const formData = new FormData();
+          formData.append('content', codeContent);
+          formData.append('homework', document.getElementById('id_homework').value); // 添加homework字段
+          formData.append('student', document.getElementById('id_student').value); // 添加student字段
+      
+          fetch('/submit/', {
+              method: 'POST',
+              body: formData,
+              headers: {
+                  'X-CSRFToken': getCookie('csrftoken')
+              }
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.json();
+          })
+          .then(data => {
+			  
+              if (data.success) {
+                  const submission = data.submission;
+				  console.log(submission.feedback);
+                  document.getElementById('output-pre').innerText = `提交成功！\n得分：${submission.score}\n评论：${submission.comment}\n反馈：${submission.feedback}`;
+              } else {
+                  document.getElementById('output-pre').innerText = '提交失败：' + JSON.stringify(data.errors);
+              }
+          })
+          .catch(error => {
+              document.getElementById('output-pre').innerText = '提交过程中发生错误：' + error.message;
+          });
+      });
+
+    </script>
+</body>
+</html>

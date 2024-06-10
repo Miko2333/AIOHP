@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online OJ Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50; /* 绿色主题色 */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 40px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .content-header h1 {
+            margin: 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        .content-header h1 i {
+            margin-right: 10px;
+        }
+        .content-header button {
+            background-color: #4CAF50; /* 绿色主题色 */
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .content-header button i {
+            margin-right: 10px;
+        }
+        .content-header button:hover {
+            background-color: #45a049; /* 悬停时的绿色 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        .problem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; /* 白色背景 */
+        }
+        .problem-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .problem-list li:last-child {
+            border-bottom: none;
+        }
+        .problem-list li:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .problem-title {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        .problem-title i {
+            margin-right: 10px;
+        }
+        .problem-difficulty span {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        .difficulty-easy {
+            background-color: #28a745;
+        }
+        .difficulty-medium {
+            background-color: #ffc107;
+        }
+        .difficulty-hard {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+    </header>
+    <div class="container">
+        <div class="content-header">
+            <h1><i class="fas fa-list"></i>题目列表</h1>
+            <button><i class="fas fa-plus"></i>发布新题目</button>
+        </div>
+        <ul class="problem-list">
+            <li onclick="navigateToProblem(1)">
+                <div class="problem-title">
+                    <i class="fas fa-code"></i>
+                    <span>合并两个有序数组</span>
+                </div>
+                <div class="problem-difficulty">
+                    <span class="difficulty-easy">简单</span>
+                </div>
+            </li>
+            <li onclick="navigateToProblem(2)">
+                <div class="problem-title">
+                    <i class="fas fa-code"></i>
+                    <span>移除元素</span>
+                </div>
+                <div class="problem-difficulty">
+                    <span class="difficulty-easy">简单</span>
+                </div>
+            </li>
+            <li onclick="navigateToProblem(3)">
+                <div class="problem-title">
+                    <i class="fas fa-code"></i>
+                    <span>删除排序数组中的重复项</span>
+                </div>
+                <div class="problem-difficulty">
+                    <span class="difficulty-easy">简单</span>
+                </div>
+            </li>
+            <li onclick="navigateToProblem(4)">
+                <div class="problem-title">
+                    <i class="fas fa-code"></i>
+                    <span>删除排序数组中的重复项 II</span>
+                </div>
+                <div class="problem-difficulty">
+                    <span class="difficulty-medium">中等</span>
+                </div>
+            </li>
+            <li onclick="navigateToProblem(5)">
+                <div class="problem-title">
+                    <i class="fas fa-code"></i>
+                    <span>多数元素</span>
+                </div>
+                <div class="problem-difficulty">
+                    <span class="difficulty-medium">中等</span>
+                </div>
+            </li>
+            <!-- Add more problems as needed -->
+        </ul>
+    </div>
+    <script>
+        function navigateToProblem(problemId) {
+            window.location.href = `/problems/${problemId}`;
+        }
+    </script>
+</body>
+</html>
